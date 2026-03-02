@@ -1,0 +1,7 @@
+# Core library — pure Python stdlib, no dependencies required
+
+# Development / testing
+pytest>=7.0
+
+# Optional: image processing for assets
+# Pillow>=9.0

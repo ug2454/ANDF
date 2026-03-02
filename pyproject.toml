@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "andf"
+version = "1.0.0"
+description = "AI Native Document Format — self-contained HTML documents with embedded JSON, opening like a PDF in any browser"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.8"
+keywords = ["document", "format", "ai", "pdf", "viewer", "html"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Intended Audience :: Developers",
+]
+# Zero runtime dependencies — pure Python stdlib.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "build", "twine"]
+
+[project.scripts]
+andf = "andf.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/andf-format/andf"
+Documentation = "https://github.com/andf-format/andf#readme"
+Issues = "https://github.com/andf-format/andf/issues"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "examples*", "scripts*"]
