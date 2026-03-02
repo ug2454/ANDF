@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "andf"
-version = "1.0.0"
+version = "1.0.1"
 description = "AI Native Document Format — self-contained HTML documents with embedded JSON, opening like a PDF in any browser"
 readme = "README.md"
 license = { text = "Apache-2.0" }

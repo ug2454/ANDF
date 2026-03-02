@@ -48,5 +48,5 @@ def open_in_browser(path: str) -> None:
     _open_in_browser(path)
 
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __all__ = ["ANDFDocument", "ANDFParser", "ANDFAILayer", "load", "save", "open_in_browser"]
