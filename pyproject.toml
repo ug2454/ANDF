@@ -28,9 +28,9 @@ dev = ["pytest>=7.0", "build", "twine"]
 andf = "andf.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/andf-format/andf"
-Documentation = "https://github.com/andf-format/andf#readme"
-Issues = "https://github.com/andf-format/andf/issues"
+Homepage = "https://github.com/ug2454/ANDF"
+Documentation = "https://github.com/ug2454/ANDF#readme"
+Issues = "https://github.com/ug2454/ANDF/issues"
 
 [tool.setuptools.packages.find]
 exclude = ["tests*", "examples*", "scripts*"]
