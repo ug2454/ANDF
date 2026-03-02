@@ -73,7 +73,8 @@ def open_andf(path: str) -> None:
     thread.start()
 
     subprocess.run(["open", f"http://localhost:{port}/{filename}"])
-    served.wait(timeout=15)
+    served.wait(timeout=30)
+    import time; time.sleep(1)  # buffer for browser to finish loading
     server.shutdown()
 
 
@@ -95,7 +96,7 @@ on open theFiles
     set helperScript to POSIX path of (path to resource "open_andf.py")
     repeat with aFile in theFiles
         set filePath to POSIX path of aFile
-        do shell script "PYTHON3_PATH " & quoted form of helperScript & " " & quoted form of filePath & " &"
+        do shell script "nohup PYTHON3_PATH " & quoted form of helperScript & " " & quoted form of filePath & " > /dev/null 2>&1 &"
     end repeat
 end open
 
