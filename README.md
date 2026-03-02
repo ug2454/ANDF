@@ -36,10 +36,10 @@ doc.open_in_browser("report.andf")  # opens in browser
 ## Installation
 
 ```bash
-pip install .
+pip install andf
 ```
 
-Or install in development mode:
+For development (after cloning the repo):
 
 ```bash
 pip install -e .
