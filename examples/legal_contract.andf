@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="andf-version" content="1.0">
+<meta name="generator" content="ANDF Python Library">
+<title>Software Licence and Services Agreement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+<script type="application/andf+json">{"andf_version": "1.0", "document_id": "2a52a7ad-8f7e-46d9-8deb-ceb3dc3b1087", "metadata": {"title": "Software Licence and Services Agreement", "subtitle": "Enterprise SaaS Agreement — Confidential", "authors": ["Legal Department"], "created": "2026-03-02T17:28:38Z", "modified": "2026-03-02T17:28:38Z", "keywords": ["contract", "licence", "SaaS", "enterprise"], "language": "en", "category": "Legal", "status": "final", "version": "3.2", "license": "Proprietary"}, "layout": {"page_size": "A4", "orientation": "portrait", "margins": {"top": 25, "bottom": 25, "left": 25, "right": 25}, "columns": 1, "header": null, "footer": "page_number"}, "theme": {"name": "minimal", "font_body": "system-ui, sans-serif", "font_heading": "system-ui, sans-serif", "font_mono": "ui-monospace, monospace", "font_size": 11, "line_height": 1.6, "colors": {"text": "#374151", "heading": "#111827", "link": "#2563eb", "muted": "#9ca3af", "border": "#f3f4f6", "callout_info": "#f0f9ff", "callout_warning": "#fffbeb", "callout_error": "#fff1f2", "callout_success": "#f0fdf4", "callout_tip": "#faf5ff", "code_bg": "#f9fafb", "code_border": "#e5e7eb"}}, "sections": [{"id": "parties", "title": "Parties", "role": "body", "blocks": ["blk_313ffe8d", "blk_1f90cd26"], "subsections": []}, {"id": "definitions", "title": "1. Definitions", "role": "body", "blocks": ["blk_3c984c72", "blk_d2ab5459"], "subsections": []}, {"id": "licence", "title": "2. Licence Grant", "role": "body", "blocks": ["blk_8924afd1", "blk_9ba17c42"], "subsections": []}, {"id": "fees", "title": "3. Fees and Payment", "role": "body", "blocks": ["blk_b4a6cd58", "blk_0befd3f1"], "subsections": []}, {"id": "sla", "title": "4. Service Level Agreement", "role": "body", "blocks": ["blk_fc24bc3d", "blk_6f8ae048", "blk_867c4dff"], "subsections": []}, {"id": "data", "title": "5. Data Protection", "role": "body", "blocks": ["blk_aaf9c4a9"], "subsections": []}, {"id": "liability", "title": "6. Limitation of Liability", "role": "body", "blocks": ["blk_3f029536", "blk_8cf77e30"], "subsections": []}, {"id": "term", "title": "7. Term and Termination", "role": "body", "blocks": ["blk_850bfa01"], "subsections": []}, {"id": "governing-law", "title": "8. Governing Law", "role": "body", "blocks": ["blk_2d1f2866"], "subsections": []}, {"id": "signatures", "title": "Signatures", "role": "body", "blocks": ["blk_0ffc3269", "blk_cc3ae178", "blk_afab1b8d"], "subsections": []}], "blocks": {"blk_313ffe8d": {"type": "paragraph", "text": "This Software Licence and Services Agreement (the **\"Agreement\"**) is entered into as of **1 March 2026** (the **\"Effective Date\"**) by and between:", "semantic": {}}, "blk_1f90cd26": {"type": "table", "caption": "", "headers": ["", "Provider", "Customer"], "rows": [["Legal name", "Acme Corporation Ltd", "Beta Technologies Ltd"], ["Company no.", "12345678", "87654321"], ["Registered address", "1 Tech Lane, London, EC1A 1AA", "50 High Street, Manchester, M1 1AD"], ["Contact email", "legal@acme.example.com", "legal@beta.example.com"]], "align": ["left", "left", "left"], "semantic": {}}, "blk_3c984c72": {"type": "paragraph", "text": "In this Agreement the following terms have the meanings set out below:", "semantic": {}}, "blk_d2ab5459": {"type": "list", "ordered": false, "items": [{"text": "**\"Software\"** means Acme's cloud-based platform known as AcmeSuite.", "level": 0}, {"text": "**\"Services\"** means implementation, support, and maintenance services.", "level": 0}, {"text": "**\"Authorised Users\"** means the Customer's employees and contractors.", "level": 0}, {"text": "**\"Confidential Information\"** means any non-public information disclosed.", "level": 0}, {"text": "**\"Personal Data\"** has the meaning given in the UK GDPR.", "level": 0}], "semantic": {}}, "blk_8924afd1": {"type": "paragraph", "text": "Subject to the terms of this Agreement and payment of all fees, Acme grants to the Customer a **non-exclusive, non-transferable, revocable licence** to access and use the Software during the Term solely for the Customer's internal business purposes.", "semantic": {}}, "blk_9ba17c42": {"type": "callout", "variant": "error", "title": "Restrictions", "text": "The Customer must not: (a) sublicence or resell the Software; (b) reverse-engineer or decompile any part; (c) use the Software to develop a competing product; or (d) exceed the Authorised User limit specified in Schedule 1.", "semantic": {}}, "blk_b4a6cd58": {"type": "table", "caption": "Schedule 1: Fee Schedule", "headers": ["Item", "Year 1", "Year 2", "Year 3"], "rows": [["Licence fee", "$800,000", "$800,000", "$800,000"], ["Implementation", "$150,000", "—", "—"], ["Training", "$30,000", "$15,000", "$15,000"], ["Support (24/7 Tier 1)", "Included", "Included", "Included"], ["**Annual total**", "**$980,000**", "**$815,000**", "**$815,000**"]], "align": ["left", "right", "right", "right"], "semantic": {}}, "blk_0befd3f1": {"type": "paragraph", "text": "All fees are payable within **30 days** of invoice date. Late payments accrue interest at 4% per annum above the Bank of England base rate.", "semantic": {}}, "blk_fc24bc3d": {"type": "paragraph", "text": "Acme shall use commercially reasonable efforts to ensure the Software is available **99.9% of each calendar month** (\"Uptime SLA\"), excluding scheduled maintenance windows notified at least 48 hours in advance.", "semantic": {}}, "blk_6f8ae048": {"type": "table", "caption": "Table 4: Service Credits", "headers": ["Monthly Uptime", "Credit (% of Monthly Fee)"], "rows": [["99.0% – 99.9%", "5%"], ["98.0% – 98.9%", "10%"], ["95.0% – 97.9%", "25%"], ["< 95.0%", "50%"]], "align": ["left", "center"], "semantic": {}}, "blk_867c4dff": {"type": "callout", "variant": "info", "title": "Service Credit Cap", "text": "Service credits are the Customer's sole and exclusive remedy for uptime failures.", "semantic": {}}, "blk_aaf9c4a9": {"type": "paragraph", "text": "Where Acme processes Personal Data on behalf of the Customer, it does so as a **data processor** (as defined in the UK GDPR). The Data Processing Addendum attached as Annex A forms part of this Agreement.", "semantic": {}}, "blk_3f029536": {"type": "paragraph", "text": "To the maximum extent permitted by law, each party's total aggregate liability to the other under or in connection with this Agreement shall not exceed the **fees paid or payable in the 12 months preceding the event giving rise to the claim**.", "semantic": {}}, "blk_8cf77e30": {"type": "callout", "variant": "warning", "title": "Exclusions", "text": "Neither party excludes liability for: death or personal injury caused by negligence; fraud or fraudulent misrepresentation; or any other liability that cannot be limited by applicable law.", "semantic": {}}, "blk_850bfa01": {"type": "paragraph", "text": "This Agreement commences on the Effective Date and continues for **three (3) years** (the \"Initial Term\"). It then auto-renews for successive 12-month periods unless either party gives **90 days' written notice** of non-renewal.", "semantic": {}}, "blk_2d1f2866": {"type": "paragraph", "text": "This Agreement and any disputes arising from it shall be governed by the laws of **England and Wales**. Each party irrevocably submits to the exclusive jurisdiction of the courts of England and Wales.", "semantic": {}}, "blk_0ffc3269": {"type": "separator"}, "blk_cc3ae178": {"type": "paragraph", "text": "By signing below, the parties agree to be bound by the terms of this Agreement.", "semantic": {}}, "blk_afab1b8d": {"type": "table", "caption": "", "headers": ["", "Provider", "Customer"], "rows": [["Signature", "___________________", "___________________"], ["Print name", "___________________", "___________________"], ["Title", "___________________", "___________________"], ["Date", "___________________", "___________________"]], "align": ["left", "left", "left"], "semantic": {}}}, "assets": {}, "references": [], "ai": {"summary": "Enterprise SaaS licence agreement between Acme Corp (Provider) and Beta Ltd (Customer). Covers a 3-year term, $2.4M total licence fee, SLA of 99.9% uptime, data processing terms under GDPR, and limitation of liability to 12 months of fees.", "key_points": ["Term: 3 years, auto-renews annually unless 90 days' notice given.", "Licence fee: $800,000/year payable annually in advance.", "SLA: 99.9% monthly uptime; service credits for breaches.", "Limitation of liability: 12 months of fees paid.", "Governing law: English law; courts of England and Wales."], "topics": [{"label": "Contract Law", "confidence": 0.99}, {"label": "SaaS Licensing", "confidence": 0.97}, {"label": "Data Protection", "confidence": 0.88}], "reading_time_minutes": 15, "complexity": "high", "questions_answered": [], "entities": {"people": [], "organizations": [], "technologies": [], "concepts": []}}}</script>
+<style>
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #374151;
+  background: #525659;
+  min-height: 100vh;
+}
+
+/* ─── Toolbar ─── */
+#andf-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: #3c4043;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toolbar button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background .15s;
+}
+#andf-toolbar button:hover { background: rgba(255,255,255,.1); }
+#andf-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#andf-page-info { white-space: nowrap; font-size: 13px; color: #bbb; }
+#andf-zoom-select {
+  background: #5a5f63;
+  border: none;
+  color: #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#andf-toc-btn { font-size: 18px !important; }
+
+/* ─── TOC sidebar ─── */
+#andf-toc {
+  position: fixed;
+  top: 48px; left: 0; bottom: 0;
+  width: 260px;
+  background: #2d2d2d;
+  color: #ddd;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .25s;
+  z-index: 900;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toc.open { transform: translateX(0); }
+#andf-toc h3 { color: #fff; margin-bottom: 12px; font-size: 14px; }
+#andf-toc a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+#andf-toc a:hover { color: #fff; border-left-color: #4a9eff; }
+
+/* ─── Viewer ─── */
+#andf-viewer {
+  padding-top: 68px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── Pages ─── */
+.andf-page {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25mm;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  position: relative;
+  page-break-after: always;
+}
+
+/* ─── Page number ─── */
+.andf-page-num {
+  position: absolute;
+  bottom: 12mm;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 9pt;
+  color: #999;
+}
+
+/* ─── Content ─── */
+.andf-h { font-family: system-ui, sans-serif; color: #111827; margin: .6em 0 .3em; }
+.andf-h1 { font-size: 2em; font-weight: 700; margin-top: 0; border-bottom: 2px solid #f3f4f6; padding-bottom: .3em; }
+.andf-h2 { font-size: 1.5em; font-weight: 700; }
+.andf-h3 { font-size: 1.2em; font-weight: 600; }
+.andf-h4 { font-size: 1.05em; font-weight: 600; }
+.andf-h5 { font-size: 1em; font-weight: 600; }
+.andf-h6 { font-size: .95em; font-weight: 600; color: #9ca3af; }
+
+.andf-p { margin: .5em 0; text-align: justify; }
+
+.andf-figure { margin: 1em 0; }
+.andf-align-center { text-align: center; }
+.andf-align-left { text-align: left; }
+.andf-align-right { text-align: right; }
+.andf-figure img { max-width: 100%; height: auto; border-radius: 4px; }
+.andf-image-placeholder {
+  background: #f9fafb;
+  border: 1px dashed #f3f4f6;
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+  border-radius: 4px;
+}
+figcaption { font-size: .85em; color: #9ca3af; margin-top: .4em; text-align: center; }
+
+.andf-table-wrap { margin: 1em 0; overflow-x: auto; }
+.andf-table-caption { font-size: .9em; color: #9ca3af; margin-bottom: .4em; font-style: italic; }
+.andf-table { width: 100%; border-collapse: collapse; font-size: .9em; }
+.andf-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid #f3f4f6;
+  text-align: left;
+}
+.andf-table td {
+  padding: 7px 12px;
+  border: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+.andf-table tr:nth-child(even) td { background: #f9fafb; }
+
+.andf-list { margin: .5em 0 .5em 1.5em; }
+.andf-list li { margin: .25em 0; }
+
+.andf-code-wrap { margin: 1em 0; }
+.andf-code-caption { font-size: .85em; color: #9ca3af; margin-bottom: .25em; font-family: ui-monospace, monospace; }
+.andf-pre {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: ui-monospace, monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  white-space: pre;
+}
+.andf-pre code { background: none; border: none; padding: 0; }
+
+.andf-quote {
+  border-left: 4px solid #2563eb;
+  margin: 1em 0;
+  padding: .5em 1em;
+  color: #9ca3af;
+  font-style: italic;
+}
+.andf-quote p { margin: 0 0 .3em; }
+.andf-quote cite { font-size: .9em; font-style: normal; }
+
+.andf-callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+.andf-callout-info    { background: #f0f9ff; border-color: #3b82f6; }
+.andf-callout-warning { background: #fffbeb; border-color: #f59e0b; }
+.andf-callout-error   { background: #fff1f2; border-color: #ef4444; }
+.andf-callout-success { background: #f0fdf4; border-color: #22c55e; }
+.andf-callout-tip     { background: #faf5ff; border-color: #8b5cf6; }
+.andf-callout-title {
+  font-weight: 700;
+  margin-bottom: .4em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.andf-callout-icon { float: left; margin-right: 6px; }
+.andf-callout p { margin: 0; }
+
+.andf-hr { border: none; border-top: 1px solid #f3f4f6; margin: 1.2em 0; }
+
+code { font-family: ui-monospace, monospace; background: #f9fafb; padding: 1px 4px; border-radius: 3px; font-size: .9em; }
+sup.ref { font-size: .75em; color: #2563eb; }
+
+/* ─── Cover page ─── */
+.andf-cover { padding-top: 30mm; text-align: center; }
+.andf-cover .andf-h1 { font-size: 2.4em; border: none; margin-bottom: .2em; }
+.andf-cover-subtitle { font-size: 1.2em; color: #9ca3af; margin-bottom: 2em; }
+.andf-cover-authors { font-size: 1em; color: #374151; margin-bottom: .5em; }
+.andf-cover-date { font-size: .9em; color: #9ca3af; }
+.andf-cover-divider { margin: 2em auto; width: 80px; height: 3px; background: #2563eb; border: none; }
+
+/* ─── Print ─── */
+@media print {
+  #andf-toolbar, #andf-toc { display: none !important; }
+  #andf-viewer { padding-top: 0; background: white; }
+  .andf-page { box-shadow: none; margin: 0; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 800px) {
+  .andf-page { width: 100%; min-height: auto; padding: 15mm 8mm; }
+  #andf-viewer { padding-top: 58px; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="andf-toolbar">
+  <button id="andf-toc-btn" title="Table of Contents">≡</button>
+  <span id="andf-title">Software Licence and Services Agreement</span>
+  <button id="andf-prev" title="Previous page">&#8592;</button>
+  <span id="andf-page-info">Page 1 / 1</span>
+  <button id="andf-next" title="Next page">&#8594;</button>
+  <button id="andf-zoom-out" title="Zoom out">&#8722;</button>
+  <select id="andf-zoom-select" title="Zoom">
+    <option value="50">50%</option>
+    <option value="75">75%</option>
+    <option value="100" selected>100%</option>
+    <option value="125">125%</option>
+    <option value="150">150%</option>
+    <option value="175">175%</option>
+    <option value="200">200%</option>
+  </select>
+  <button id="andf-zoom-in" title="Zoom in">&#43;</button>
+  <button id="andf-download" title="Save file">&#8595;</button>
+</div>
+
+<!-- TOC Sidebar -->
+<div id="andf-toc">
+  <h3>Contents</h3>
+<a href="#sec-parties">Parties</a>
+<a href="#sec-definitions">1. Definitions</a>
+<a href="#sec-licence">2. Licence Grant</a>
+<a href="#sec-fees">3. Fees and Payment</a>
+<a href="#sec-sla">4. Service Level Agreement</a>
+<a href="#sec-data">5. Data Protection</a>
+<a href="#sec-liability">6. Limitation of Liability</a>
+<a href="#sec-term">7. Term and Termination</a>
+<a href="#sec-governing-law">8. Governing Law</a>
+<a href="#sec-signatures">Signatures</a>
+</div>
+
+<!-- Viewer -->
+<div id="andf-viewer">
+<div class="andf-page" id="page-1">
+<div class="andf-cover">
+<h1 class="andf-h andf-h1">Software Licence and Services Agreement</h1>
+<p class="andf-cover-subtitle">Enterprise SaaS Agreement — Confidential</p>
+<p class="andf-cover-authors">Legal Department</p>
+<p class="andf-cover-date">2026-03-02</p>
+<hr class="andf-cover-divider">
+</div>
+<p class="andf-p">This Software Licence and Services Agreement (the <strong>&quot;Agreement&quot;</strong>) is entered into as of <strong>1 March 2026</strong> (the <strong>&quot;Effective Date&quot;</strong>) by and between:</p>
+<figure class="andf-table-wrap">
+<table class="andf-table"><thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">Provider</th>
+<th style="text-align:left">Customer</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Legal name</td>
+<td style="text-align:left">Acme Corporation Ltd</td>
+<td style="text-align:left">Beta Technologies Ltd</td>
+</tr>
+<tr>
+<td style="text-align:left">Company no.</td>
+<td style="text-align:left">12345678</td>
+<td style="text-align:left">87654321</td>
+</tr>
+<tr>
+<td style="text-align:left">Registered address</td>
+<td style="text-align:left">1 Tech Lane, London, EC1A 1AA</td>
+<td style="text-align:left">50 High Street, Manchester, M1 1AD</td>
+</tr>
+<tr>
+<td style="text-align:left">Contact email</td>
+<td style="text-align:left">legal@acme.example.com</td>
+<td style="text-align:left">legal@beta.example.com</td>
+</tr>
+</tbody></table></figure>
+<p class="andf-p">In this Agreement the following terms have the meanings set out below:</p>
+<ul class="andf-list">
+<li style="margin-left:0px"><strong>&quot;Software&quot;</strong> means Acme&#x27;s cloud-based platform known as AcmeSuite.</li>
+<li style="margin-left:0px"><strong>&quot;Services&quot;</strong> means implementation, support, and maintenance services.</li>
+<li style="margin-left:0px"><strong>&quot;Authorised Users&quot;</strong> means the Customer&#x27;s employees and contractors.</li>
+<li style="margin-left:0px"><strong>&quot;Confidential Information&quot;</strong> means any non-public information disclosed.</li>
+<li style="margin-left:0px"><strong>&quot;Personal Data&quot;</strong> has the meaning given in the UK GDPR.</li>
+</ul>
+<p class="andf-p">Subject to the terms of this Agreement and payment of all fees, Acme grants to the Customer a <strong>non-exclusive, non-transferable, revocable licence</strong> to access and use the Software during the Term solely for the Customer&#x27;s internal business purposes.</p>
+<div class="andf-callout andf-callout-error"><div class="andf-callout-title">✖ Restrictions</div><p>The Customer must not: (a) sublicence or resell the Software; (b) reverse-engineer or decompile any part; (c) use the Software to develop a competing product; or (d) exceed the Authorised User limit specified in Schedule 1.</p></div>
+<div class="andf-page-num">1</div>
+</div>
+
+<div class="andf-page" id="page-2">
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Schedule 1: Fee Schedule</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Item</th>
+<th style="text-align:right">Year 1</th>
+<th style="text-align:right">Year 2</th>
+<th style="text-align:right">Year 3</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Licence fee</td>
+<td style="text-align:right">$800,000</td>
+<td style="text-align:right">$800,000</td>
+<td style="text-align:right">$800,000</td>
+</tr>
+<tr>
+<td style="text-align:left">Implementation</td>
+<td style="text-align:right">$150,000</td>
+<td style="text-align:right">—</td>
+<td style="text-align:right">—</td>
+</tr>
+<tr>
+<td style="text-align:left">Training</td>
+<td style="text-align:right">$30,000</td>
+<td style="text-align:right">$15,000</td>
+<td style="text-align:right">$15,000</td>
+</tr>
+<tr>
+<td style="text-align:left">Support (24/7 Tier 1)</td>
+<td style="text-align:right">Included</td>
+<td style="text-align:right">Included</td>
+<td style="text-align:right">Included</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Annual total</strong></td>
+<td style="text-align:right"><strong>$980,000</strong></td>
+<td style="text-align:right"><strong>$815,000</strong></td>
+<td style="text-align:right"><strong>$815,000</strong></td>
+</tr>
+</tbody></table></figure>
+<p class="andf-p">All fees are payable within <strong>30 days</strong> of invoice date. Late payments accrue interest at 4% per annum above the Bank of England base rate.</p>
+<p class="andf-p">Acme shall use commercially reasonable efforts to ensure the Software is available <strong>99.9% of each calendar month</strong> (&quot;Uptime SLA&quot;), excluding scheduled maintenance windows notified at least 48 hours in advance.</p>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 4: Service Credits</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Monthly Uptime</th>
+<th style="text-align:center">Credit (% of Monthly Fee)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">99.0% – 99.9%</td>
+<td style="text-align:center">5%</td>
+</tr>
+<tr>
+<td style="text-align:left">98.0% – 98.9%</td>
+<td style="text-align:center">10%</td>
+</tr>
+<tr>
+<td style="text-align:left">95.0% – 97.9%</td>
+<td style="text-align:center">25%</td>
+</tr>
+<tr>
+<td style="text-align:left">&lt; 95.0%</td>
+<td style="text-align:center">50%</td>
+</tr>
+</tbody></table></figure>
+<div class="andf-callout andf-callout-info"><div class="andf-callout-title">ℹ Service Credit Cap</div><p>Service credits are the Customer&#x27;s sole and exclusive remedy for uptime failures.</p></div>
+<p class="andf-p">Where Acme processes Personal Data on behalf of the Customer, it does so as a <strong>data processor</strong> (as defined in the UK GDPR). The Data Processing Addendum attached as Annex A forms part of this Agreement.</p>
+<p class="andf-p">To the maximum extent permitted by law, each party&#x27;s total aggregate liability to the other under or in connection with this Agreement shall not exceed the <strong>fees paid or payable in the 12 months preceding the event giving rise to the claim</strong>.</p>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ Exclusions</div><p>Neither party excludes liability for: death or personal injury caused by negligence; fraud or fraudulent misrepresentation; or any other liability that cannot be limited by applicable law.</p></div>
+<p class="andf-p">This Agreement commences on the Effective Date and continues for <strong>three (3) years</strong> (the &quot;Initial Term&quot;). It then auto-renews for successive 12-month periods unless either party gives <strong>90 days&#x27; written notice</strong> of non-renewal.</p>
+<p class="andf-p">This Agreement and any disputes arising from it shall be governed by the laws of <strong>England and Wales</strong>. Each party irrevocably submits to the exclusive jurisdiction of the courts of England and Wales.</p>
+<hr class="andf-hr">
+<div class="andf-page-num">2</div>
+</div>
+
+<div class="andf-page" id="page-3">
+<p class="andf-p">By signing below, the parties agree to be bound by the terms of this Agreement.</p>
+<figure class="andf-table-wrap">
+<table class="andf-table"><thead><tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">Provider</th>
+<th style="text-align:left">Customer</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Signature</td>
+<td style="text-align:left">___________________</td>
+<td style="text-align:left">___________________</td>
+</tr>
+<tr>
+<td style="text-align:left">Print name</td>
+<td style="text-align:left">___________________</td>
+<td style="text-align:left">___________________</td>
+</tr>
+<tr>
+<td style="text-align:left">Title</td>
+<td style="text-align:left">___________________</td>
+<td style="text-align:left">___________________</td>
+</tr>
+<tr>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">___________________</td>
+<td style="text-align:left">___________________</td>
+</tr>
+</tbody></table></figure>
+<div class="andf-page-num">3</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+
+(function() {
+  var pages = document.querySelectorAll('.andf-page');
+  var totalPages = pages.length;
+  var currentPage = 1;
+  var zoom = 100;
+
+  var pageInfoEl = document.getElementById('andf-page-info');
+  var zoomSelect = document.getElementById('andf-zoom-select');
+  var viewer = document.getElementById('andf-viewer');
+
+  function updatePageInfo() {
+    if (pageInfoEl) pageInfoEl.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+  }
+
+  function scrollToPage(n) {
+    n = Math.max(1, Math.min(n, totalPages));
+    currentPage = n;
+    pages[n - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    updatePageInfo();
+  }
+
+  function applyZoom(z) {
+    zoom = Math.max(50, Math.min(200, z));
+    viewer.style.transform = 'scale(' + zoom / 100 + ')';
+    viewer.style.transformOrigin = 'top center';
+    viewer.style.marginBottom = (zoom > 100 ? (zoom - 100) * 2.97 + 'mm' : '0');
+    if (zoomSelect) zoomSelect.value = zoom;
+  }
+
+  // Intersection observer to track current page
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(pages, entry.target);
+        if (idx >= 0) { currentPage = idx + 1; updatePageInfo(); }
+      }
+    });
+  }, { threshold: 0.3 });
+  pages.forEach(function(p) { observer.observe(p); });
+
+  // Toolbar button wiring
+  var prevBtn = document.getElementById('andf-prev');
+  var nextBtn = document.getElementById('andf-next');
+  var zoomInBtn = document.getElementById('andf-zoom-in');
+  var zoomOutBtn = document.getElementById('andf-zoom-out');
+  var downloadBtn = document.getElementById('andf-download');
+  var tocBtn = document.getElementById('andf-toc-btn');
+  var toc = document.getElementById('andf-toc');
+
+  if (prevBtn) prevBtn.onclick = function() { scrollToPage(currentPage - 1); };
+  if (nextBtn) nextBtn.onclick = function() { scrollToPage(currentPage + 1); };
+  if (zoomInBtn) zoomInBtn.onclick = function() { applyZoom(zoom + 10); };
+  if (zoomOutBtn) zoomOutBtn.onclick = function() { applyZoom(zoom - 10); };
+  if (zoomSelect) zoomSelect.onchange = function() { applyZoom(parseInt(this.value)); };
+
+  if (downloadBtn) {
+    downloadBtn.onclick = function() {
+      var a = document.createElement('a');
+      a.href = window.location.href;
+      a.download = document.title + '.andf';
+      a.click();
+    };
+  }
+
+  if (tocBtn && toc) {
+    tocBtn.onclick = function() { toc.classList.toggle('open'); };
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') scrollToPage(currentPage + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') scrollToPage(currentPage - 1);
+    if (e.key === '+' || (e.key === '=' && e.ctrlKey)) { e.preventDefault(); applyZoom(zoom + 10); }
+    if (e.key === '-' && e.ctrlKey) { e.preventDefault(); applyZoom(zoom - 10); }
+    if (e.key === '0' && e.ctrlKey) { e.preventDefault(); applyZoom(100); }
+  });
+
+  updatePageInfo();
+})();
+
+</script>
+</body>
+</html>

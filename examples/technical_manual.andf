@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="andf-version" content="1.0">
+<meta name="generator" content="ANDF Python Library">
+<title>AcmeSuite API — Developer Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+<script type="application/andf+json">{"andf_version": "1.0", "document_id": "37adc5f5-5219-45e8-a56f-6f6afbe8b45e", "metadata": {"title": "AcmeSuite API — Developer Reference", "subtitle": "REST API v3.0 Integration Guide", "authors": ["Developer Relations Team"], "created": "2026-03-02T17:28:38Z", "modified": "2026-03-02T17:28:38Z", "keywords": ["API", "REST", "integration", "developer", "reference"], "language": "en", "category": "Technical Documentation", "status": "published", "version": "3.0.1", "license": "Apache 2.0"}, "layout": {"page_size": "A4", "orientation": "portrait", "margins": {"top": 25, "bottom": 25, "left": 25, "right": 25}, "columns": 1, "header": null, "footer": "page_number"}, "theme": {"name": "default", "font_body": "Inter, sans-serif", "font_heading": "Inter, sans-serif", "font_mono": "JetBrains Mono, monospace", "font_size": 11, "line_height": 1.6, "colors": {"text": "#1a1a1a", "heading": "#111111", "link": "#1a73e8", "muted": "#6b7280", "border": "#e5e7eb", "callout_info": "#eff6ff", "callout_warning": "#fffbeb", "callout_error": "#fef2f2", "callout_success": "#f0fdf4", "callout_tip": "#f5f3ff", "code_bg": "#f8f8f8", "code_border": "#e1e4e8"}}, "sections": [{"id": "overview", "title": "1. Overview", "role": "introduction", "blocks": ["blk_5de89d81", "blk_4a03673f", "blk_d21db21e"], "subsections": []}, {"id": "auth", "title": "2. Authentication", "role": "body", "blocks": [], "subsections": [{"id": "auth-apikey", "title": "2.1 API Key", "role": "body", "blocks": ["blk_aa0e7ccc", "blk_65b0bd6f", "blk_ec16aab0"], "subsections": []}, {"id": "auth-oauth", "title": "2.2 OAuth 2.0 Client Credentials", "role": "body", "blocks": ["blk_c48ac2cc", "blk_fb00463c"], "subsections": []}]}, {"id": "endpoints", "title": "3. Core Endpoints", "role": "body", "blocks": ["blk_efe454cb"], "subsections": [{"id": "ep-users", "title": "3.1 Users", "role": "body", "blocks": ["blk_d8ada83c", "blk_bf39efd5"], "subsections": []}, {"id": "ep-docs", "title": "3.2 Documents", "role": "body", "blocks": ["blk_bf77369b"], "subsections": []}]}, {"id": "rate-limits", "title": "4. Rate Limiting", "role": "body", "blocks": ["blk_5c834cc0", "blk_5fe88b0d", "blk_7fbecc78"], "subsections": []}, {"id": "errors", "title": "5. Error Reference", "role": "body", "blocks": ["blk_d1a896aa", "blk_7cf0784f"], "subsections": []}, {"id": "webhooks", "title": "6. Webhooks", "role": "body", "blocks": ["blk_e66d4fb2", "blk_836e9346", "blk_4d4f76f1"], "subsections": []}, {"id": "sdk", "title": "7. Python SDK", "role": "body", "blocks": ["blk_e16213e1", "blk_b08b0a38", "blk_9e8b9eb1", "blk_85353eb2"], "subsections": []}], "blocks": {"blk_5de89d81": {"type": "paragraph", "text": "The AcmeSuite REST API provides programmatic access to all platform resources. It follows REST conventions and returns JSON responses. All API calls must be made over **HTTPS**; HTTP calls will be rejected with `301 Moved Permanently`.", "semantic": {}}, "blk_4a03673f": {"type": "callout", "variant": "info", "title": "Base URL", "text": "https://api.acmesuite.example.com/v3", "semantic": {}}, "blk_d21db21e": {"type": "table", "caption": "Table 1: API Characteristics", "headers": ["Property", "Value"], "rows": [["Protocol", "HTTPS only"], ["Format", "JSON (UTF-8)"], ["Authentication", "API Key or OAuth 2.0"], ["Rate limit", "1,000 req/min per key"], ["Timestamps", "ISO 8601 UTC"], ["Pagination", "Cursor-based"], ["Idempotency", "Supported via `Idempotency-Key` header"]], "align": ["left", "left"], "semantic": {}}, "blk_aa0e7ccc": {"type": "paragraph", "text": "Pass your API key in the `Authorization` header as a Bearer token:", "semantic": {}}, "blk_65b0bd6f": {"type": "code", "language": "bash", "code": "curl -X GET https://api.acmesuite.example.com/v3/users \\\n  -H 'Authorization: Bearer YOUR_API_KEY' \\\n  -H 'Content-Type: application/json'", "caption": "API Key authentication", "line_numbers": false, "semantic": {}}, "blk_ec16aab0": {"type": "callout", "variant": "warning", "title": "Keep Your Key Secret", "text": "Never expose API keys in client-side code or public repositories. Rotate keys immediately if they are compromised via the dashboard.", "semantic": {}}, "blk_c48ac2cc": {"type": "paragraph", "text": "For server-to-server integrations, use the OAuth 2.0 client credentials flow:", "semantic": {}}, "blk_fb00463c": {"type": "code", "language": "bash", "code": "# Step 1: Exchange credentials for access token\ncurl -X POST https://api.acmesuite.example.com/v3/oauth/token \\\n  -d 'grant_type=client_credentials' \\\n  -d 'client_id=YOUR_CLIENT_ID' \\\n  -d 'client_secret=YOUR_CLIENT_SECRET' \\\n  -d 'scope=read:users write:documents'\n\n# Response\n{\n  \"access_token\": \"eyJhbGci...\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 3600\n}", "caption": "OAuth 2.0 token exchange", "line_numbers": false, "semantic": {}}, "blk_efe454cb": {"type": "paragraph", "text": "All endpoints return a JSON object with `data`, `meta`, and optionally `errors` keys.", "semantic": {}}, "blk_d8ada83c": {"type": "table", "caption": "Table 2: User Endpoints", "headers": ["Method", "Path", "Description"], "rows": [["GET", "/users", "List all users (paginated)"], ["POST", "/users", "Create a new user"], ["GET", "/users/{id}", "Get user by ID"], ["PATCH", "/users/{id}", "Update user fields"], ["DELETE", "/users/{id}", "Deactivate a user"]], "align": ["left", "left", "left"], "semantic": {}}, "blk_bf39efd5": {"type": "code", "language": "json", "code": "# Create user\nPOST /v3/users\nContent-Type: application/json\n\n{\n  \"email\": \"alice@example.com\",\n  \"name\": \"Alice Johnson\",\n  \"role\": \"editor\",\n  \"teams\": [\"team_abc123\"]\n}\n\n# Response 201 Created\n{\n  \"data\": {\n    \"id\": \"usr_xyz789\",\n    \"email\": \"alice@example.com\",\n    \"name\": \"Alice Johnson\",\n    \"role\": \"editor\",\n    \"created_at\": \"2026-03-02T10:00:00Z\"\n  }\n}", "caption": "Create user request and response", "line_numbers": false, "semantic": {}}, "blk_bf77369b": {"type": "table", "caption": "Table 3: Document Endpoints", "headers": ["Method", "Path", "Description"], "rows": [["GET", "/documents", "List documents"], ["POST", "/documents", "Upload a new document"], ["GET", "/documents/{id}", "Get document metadata"], ["GET", "/documents/{id}/content", "Download document content"], ["DELETE", "/documents/{id}", "Delete a document"]], "align": ["left", "left", "left"], "semantic": {}}, "blk_5c834cc0": {"type": "paragraph", "text": "API keys are limited to **1,000 requests per minute**. Enterprise plans have configurable limits up to 10,000 req/min. Rate limit information is returned in every response via headers:", "semantic": {}}, "blk_5fe88b0d": {"type": "code", "language": "http", "code": "X-RateLimit-Limit: 1000\nX-RateLimit-Remaining: 874\nX-RateLimit-Reset: 1740920460", "caption": "Rate limit response headers", "line_numbers": false, "semantic": {}}, "blk_7fbecc78": {"type": "callout", "variant": "warning", "title": "429 Too Many Requests", "text": "When the rate limit is exceeded the API returns HTTP 429. Implement exponential back-off: wait 2^n seconds (n = retry attempt, max 60s).", "semantic": {}}, "blk_d1a896aa": {"type": "table", "caption": "Table 4: HTTP Error Codes", "headers": ["Code", "Name", "Description"], "rows": [["400", "Bad Request", "Malformed request body or missing required field"], ["401", "Unauthorised", "Invalid or missing API key / token"], ["403", "Forbidden", "Authenticated but insufficient permissions"], ["404", "Not Found", "Resource does not exist"], ["409", "Conflict", "Duplicate resource (e.g., email already registered)"], ["422", "Unprocessable", "Validation error on field values"], ["429", "Too Many Requests", "Rate limit exceeded"], ["500", "Server Error", "Unexpected server error — contact support"], ["503", "Service Unavailable", "Planned maintenance or outage"]], "align": ["center", "left", "left"], "semantic": {}}, "blk_7cf0784f": {"type": "code", "language": "json", "code": "# Error response shape\n{\n  \"errors\": [\n    {\n      \"code\": \"VALIDATION_ERROR\",\n      \"field\": \"email\",\n      \"message\": \"Must be a valid email address\"\n    }\n  ]\n}", "caption": "Standard error response format", "line_numbers": false, "semantic": {}}, "blk_e66d4fb2": {"type": "paragraph", "text": "Register a webhook endpoint to receive real-time push notifications when events occur. AcmeSuite signs each request with a secret so you can verify authenticity.", "semantic": {}}, "blk_836e9346": {"type": "list", "ordered": false, "items": [{"text": "`document.created` — new document uploaded", "level": 0}, {"text": "`document.updated` — document content modified", "level": 0}, {"text": "`user.invited` — new user invited to workspace", "level": 0}, {"text": "`user.deactivated` — user account deactivated", "level": 0}, {"text": "`payment.succeeded` — subscription payment processed", "level": 0}, {"text": "`payment.failed` — payment attempt failed", "level": 0}], "semantic": {}}, "blk_4d4f76f1": {"type": "code", "language": "python", "code": "import hmac, hashlib\n\ndef verify_webhook(payload_bytes: bytes, signature: str, secret: str) -> bool:\n    \"\"\"Verify Acme webhook signature.\"\"\"\n    expected = hmac.new(\n        secret.encode(),\n        payload_bytes,\n        hashlib.sha256,\n    ).hexdigest()\n    return hmac.compare_digest(f'sha256={expected}', signature)\n\n# In your request handler:\nsig = request.headers['X-Acme-Signature']\nif not verify_webhook(request.body, sig, WEBHOOK_SECRET):\n    return 401", "caption": "Webhook signature verification (Python)", "line_numbers": false, "semantic": {}}, "blk_e16213e1": {"type": "paragraph", "text": "The official Python SDK wraps the REST API with a Pythonic interface. Install via pip:", "semantic": {}}, "blk_b08b0a38": {"type": "code", "language": "bash", "code": "pip install acmesuite", "caption": "", "line_numbers": false, "semantic": {}}, "blk_9e8b9eb1": {"type": "code", "language": "python", "code": "from acmesuite import AcmeClient\n\nclient = AcmeClient(api_key='YOUR_API_KEY')\n\n# List users\nusers = client.users.list(limit=50)\nfor user in users:\n    print(user.name, user.email)\n\n# Upload document\nwith open('report.pdf', 'rb') as f:\n    doc = client.documents.upload(\n        file=f,\n        name='Q4 Report',\n        folder='finance',\n    )\nprint(f'Uploaded: {doc.id}')", "caption": "Python SDK quick start", "line_numbers": false, "semantic": {}}, "blk_85353eb2": {"type": "callout", "variant": "tip", "title": "Pagination Helper", "text": "All list methods return an auto-paginating iterator. Use `client.users.list_all()` to lazily fetch every page.", "semantic": {}}}, "assets": {}, "references": [], "ai": {"summary": "Developer reference for the AcmeSuite REST API v3.0. Covers authentication (API keys and OAuth 2.0), core endpoints, rate limiting, error codes, webhooks, and SDK usage.", "key_points": ["Authentication: API key (header) or OAuth 2.0 client credentials.", "Base URL: https://api.acmesuite.example.com/v3", "Rate limit: 1000 requests/minute per API key.", "All timestamps are UTC ISO 8601.", "Pagination uses cursor-based approach."], "topics": [{"label": "REST APIs", "confidence": 0.99}, {"label": "Authentication", "confidence": 0.95}, {"label": "Developer Documentation", "confidence": 0.97}], "reading_time_minutes": 20, "complexity": "high", "questions_answered": ["How do I authenticate with the API?", "What are the rate limits?", "How do I handle pagination?", "How do webhooks work?"], "entities": {"people": [], "organizations": [], "technologies": [], "concepts": []}}}</script>
+<style>
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Inter, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #525659;
+  min-height: 100vh;
+}
+
+/* ─── Toolbar ─── */
+#andf-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: #3c4043;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toolbar button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background .15s;
+}
+#andf-toolbar button:hover { background: rgba(255,255,255,.1); }
+#andf-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#andf-page-info { white-space: nowrap; font-size: 13px; color: #bbb; }
+#andf-zoom-select {
+  background: #5a5f63;
+  border: none;
+  color: #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#andf-toc-btn { font-size: 18px !important; }
+
+/* ─── TOC sidebar ─── */
+#andf-toc {
+  position: fixed;
+  top: 48px; left: 0; bottom: 0;
+  width: 260px;
+  background: #2d2d2d;
+  color: #ddd;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .25s;
+  z-index: 900;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toc.open { transform: translateX(0); }
+#andf-toc h3 { color: #fff; margin-bottom: 12px; font-size: 14px; }
+#andf-toc a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+#andf-toc a:hover { color: #fff; border-left-color: #4a9eff; }
+
+/* ─── Viewer ─── */
+#andf-viewer {
+  padding-top: 68px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── Pages ─── */
+.andf-page {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25mm;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  position: relative;
+  page-break-after: always;
+}
+
+/* ─── Page number ─── */
+.andf-page-num {
+  position: absolute;
+  bottom: 12mm;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 9pt;
+  color: #999;
+}
+
+/* ─── Content ─── */
+.andf-h { font-family: Inter, sans-serif; color: #111111; margin: .6em 0 .3em; }
+.andf-h1 { font-size: 2em; font-weight: 700; margin-top: 0; border-bottom: 2px solid #e5e7eb; padding-bottom: .3em; }
+.andf-h2 { font-size: 1.5em; font-weight: 700; }
+.andf-h3 { font-size: 1.2em; font-weight: 600; }
+.andf-h4 { font-size: 1.05em; font-weight: 600; }
+.andf-h5 { font-size: 1em; font-weight: 600; }
+.andf-h6 { font-size: .95em; font-weight: 600; color: #6b7280; }
+
+.andf-p { margin: .5em 0; text-align: justify; }
+
+.andf-figure { margin: 1em 0; }
+.andf-align-center { text-align: center; }
+.andf-align-left { text-align: left; }
+.andf-align-right { text-align: right; }
+.andf-figure img { max-width: 100%; height: auto; border-radius: 4px; }
+.andf-image-placeholder {
+  background: #f8f8f8;
+  border: 1px dashed #e5e7eb;
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  border-radius: 4px;
+}
+figcaption { font-size: .85em; color: #6b7280; margin-top: .4em; text-align: center; }
+
+.andf-table-wrap { margin: 1em 0; overflow-x: auto; }
+.andf-table-caption { font-size: .9em; color: #6b7280; margin-bottom: .4em; font-style: italic; }
+.andf-table { width: 100%; border-collapse: collapse; font-size: .9em; }
+.andf-table th {
+  background: #f8f8f8;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+.andf-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+}
+.andf-table tr:nth-child(even) td { background: #f8f8f8; }
+
+.andf-list { margin: .5em 0 .5em 1.5em; }
+.andf-list li { margin: .25em 0; }
+
+.andf-code-wrap { margin: 1em 0; }
+.andf-code-caption { font-size: .85em; color: #6b7280; margin-bottom: .25em; font-family: JetBrains Mono, monospace; }
+.andf-pre {
+  background: #f8f8f8;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: JetBrains Mono, monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  white-space: pre;
+}
+.andf-pre code { background: none; border: none; padding: 0; }
+
+.andf-quote {
+  border-left: 4px solid #1a73e8;
+  margin: 1em 0;
+  padding: .5em 1em;
+  color: #6b7280;
+  font-style: italic;
+}
+.andf-quote p { margin: 0 0 .3em; }
+.andf-quote cite { font-size: .9em; font-style: normal; }
+
+.andf-callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+.andf-callout-info    { background: #eff6ff; border-color: #3b82f6; }
+.andf-callout-warning { background: #fffbeb; border-color: #f59e0b; }
+.andf-callout-error   { background: #fef2f2; border-color: #ef4444; }
+.andf-callout-success { background: #f0fdf4; border-color: #22c55e; }
+.andf-callout-tip     { background: #f5f3ff; border-color: #8b5cf6; }
+.andf-callout-title {
+  font-weight: 700;
+  margin-bottom: .4em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.andf-callout-icon { float: left; margin-right: 6px; }
+.andf-callout p { margin: 0; }
+
+.andf-hr { border: none; border-top: 1px solid #e5e7eb; margin: 1.2em 0; }
+
+code { font-family: JetBrains Mono, monospace; background: #f8f8f8; padding: 1px 4px; border-radius: 3px; font-size: .9em; }
+sup.ref { font-size: .75em; color: #1a73e8; }
+
+/* ─── Cover page ─── */
+.andf-cover { padding-top: 30mm; text-align: center; }
+.andf-cover .andf-h1 { font-size: 2.4em; border: none; margin-bottom: .2em; }
+.andf-cover-subtitle { font-size: 1.2em; color: #6b7280; margin-bottom: 2em; }
+.andf-cover-authors { font-size: 1em; color: #1a1a1a; margin-bottom: .5em; }
+.andf-cover-date { font-size: .9em; color: #6b7280; }
+.andf-cover-divider { margin: 2em auto; width: 80px; height: 3px; background: #1a73e8; border: none; }
+
+/* ─── Print ─── */
+@media print {
+  #andf-toolbar, #andf-toc { display: none !important; }
+  #andf-viewer { padding-top: 0; background: white; }
+  .andf-page { box-shadow: none; margin: 0; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 800px) {
+  .andf-page { width: 100%; min-height: auto; padding: 15mm 8mm; }
+  #andf-viewer { padding-top: 58px; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="andf-toolbar">
+  <button id="andf-toc-btn" title="Table of Contents">≡</button>
+  <span id="andf-title">AcmeSuite API — Developer Reference</span>
+  <button id="andf-prev" title="Previous page">&#8592;</button>
+  <span id="andf-page-info">Page 1 / 1</span>
+  <button id="andf-next" title="Next page">&#8594;</button>
+  <button id="andf-zoom-out" title="Zoom out">&#8722;</button>
+  <select id="andf-zoom-select" title="Zoom">
+    <option value="50">50%</option>
+    <option value="75">75%</option>
+    <option value="100" selected>100%</option>
+    <option value="125">125%</option>
+    <option value="150">150%</option>
+    <option value="175">175%</option>
+    <option value="200">200%</option>
+  </select>
+  <button id="andf-zoom-in" title="Zoom in">&#43;</button>
+  <button id="andf-download" title="Save file">&#8595;</button>
+</div>
+
+<!-- TOC Sidebar -->
+<div id="andf-toc">
+  <h3>Contents</h3>
+<a href="#sec-overview">1. Overview</a>
+<a href="#sec-auth">2. Authentication</a>
+<a href="#sec-auth-apikey" style="padding-left:20px;font-size:.9em">&nbsp;2.1 API Key</a>
+<a href="#sec-auth-oauth" style="padding-left:20px;font-size:.9em">&nbsp;2.2 OAuth 2.0 Client Credentials</a>
+<a href="#sec-endpoints">3. Core Endpoints</a>
+<a href="#sec-ep-users" style="padding-left:20px;font-size:.9em">&nbsp;3.1 Users</a>
+<a href="#sec-ep-docs" style="padding-left:20px;font-size:.9em">&nbsp;3.2 Documents</a>
+<a href="#sec-rate-limits">4. Rate Limiting</a>
+<a href="#sec-errors">5. Error Reference</a>
+<a href="#sec-webhooks">6. Webhooks</a>
+<a href="#sec-sdk">7. Python SDK</a>
+</div>
+
+<!-- Viewer -->
+<div id="andf-viewer">
+<div class="andf-page" id="page-1">
+<div class="andf-cover">
+<h1 class="andf-h andf-h1">AcmeSuite API — Developer Reference</h1>
+<p class="andf-cover-subtitle">REST API v3.0 Integration Guide</p>
+<p class="andf-cover-authors">Developer Relations Team</p>
+<p class="andf-cover-date">2026-03-02</p>
+<hr class="andf-cover-divider">
+</div>
+<p class="andf-p">The AcmeSuite REST API provides programmatic access to all platform resources. It follows REST conventions and returns JSON responses. All API calls must be made over <strong>HTTPS</strong>; HTTP calls will be rejected with <code>301 Moved Permanently</code>.</p>
+<div class="andf-callout andf-callout-info"><div class="andf-callout-title">ℹ Base URL</div><p>https://api.acmesuite.example.com/v3</p></div>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 1: API Characteristics</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:left">Value</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Protocol</td>
+<td style="text-align:left">HTTPS only</td>
+</tr>
+<tr>
+<td style="text-align:left">Format</td>
+<td style="text-align:left">JSON (UTF-8)</td>
+</tr>
+<tr>
+<td style="text-align:left">Authentication</td>
+<td style="text-align:left">API Key or OAuth 2.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Rate limit</td>
+<td style="text-align:left">1,000 req/min per key</td>
+</tr>
+<tr>
+<td style="text-align:left">Timestamps</td>
+<td style="text-align:left">ISO 8601 UTC</td>
+</tr>
+<tr>
+<td style="text-align:left">Pagination</td>
+<td style="text-align:left">Cursor-based</td>
+</tr>
+<tr>
+<td style="text-align:left">Idempotency</td>
+<td style="text-align:left">Supported via <code>Idempotency-Key</code> header</td>
+</tr>
+</tbody></table></figure>
+<p class="andf-p">Pass your API key in the <code>Authorization</code> header as a Bearer token:</p>
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">API Key authentication</figcaption>
+<pre class="andf-pre language-bash"><code class="language-bash">curl -X GET https://api.acmesuite.example.com/v3/users \
+  -H &#x27;Authorization: Bearer YOUR_API_KEY&#x27; \
+  -H &#x27;Content-Type: application/json&#x27;</code></pre>
+</figure>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ Keep Your Key Secret</div><p>Never expose API keys in client-side code or public repositories. Rotate keys immediately if they are compromised via the dashboard.</p></div>
+<p class="andf-p">For server-to-server integrations, use the OAuth 2.0 client credentials flow:</p>
+<div class="andf-page-num">1</div>
+</div>
+
+<div class="andf-page" id="page-2">
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">OAuth 2.0 token exchange</figcaption>
+<pre class="andf-pre language-bash"><code class="language-bash"># Step 1: Exchange credentials for access token
+curl -X POST https://api.acmesuite.example.com/v3/oauth/token \
+  -d &#x27;grant_type=client_credentials&#x27; \
+  -d &#x27;client_id=YOUR_CLIENT_ID&#x27; \
+  -d &#x27;client_secret=YOUR_CLIENT_SECRET&#x27; \
+  -d &#x27;scope=read:users write:documents&#x27;
+
+# Response
+{
+  &quot;access_token&quot;: &quot;eyJhbGci...&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;expires_in&quot;: 3600
+}</code></pre>
+</figure>
+<p class="andf-p">All endpoints return a JSON object with <code>data</code>, <code>meta</code>, and optionally <code>errors</code> keys.</p>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 2: User Endpoints</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Path</th>
+<th style="text-align:left">Description</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">/users</td>
+<td style="text-align:left">List all users (paginated)</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">/users</td>
+<td style="text-align:left">Create a new user</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">/users/{id}</td>
+<td style="text-align:left">Get user by ID</td>
+</tr>
+<tr>
+<td style="text-align:left">PATCH</td>
+<td style="text-align:left">/users/{id}</td>
+<td style="text-align:left">Update user fields</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">/users/{id}</td>
+<td style="text-align:left">Deactivate a user</td>
+</tr>
+</tbody></table></figure>
+<div class="andf-page-num">2</div>
+</div>
+
+<div class="andf-page" id="page-3">
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Create user request and response</figcaption>
+<pre class="andf-pre language-json"><code class="language-json"># Create user
+POST /v3/users
+Content-Type: application/json
+
+{
+  &quot;email&quot;: &quot;alice@example.com&quot;,
+  &quot;name&quot;: &quot;Alice Johnson&quot;,
+  &quot;role&quot;: &quot;editor&quot;,
+  &quot;teams&quot;: [&quot;team_abc123&quot;]
+}
+
+# Response 201 Created
+{
+  &quot;data&quot;: {
+    &quot;id&quot;: &quot;usr_xyz789&quot;,
+    &quot;email&quot;: &quot;alice@example.com&quot;,
+    &quot;name&quot;: &quot;Alice Johnson&quot;,
+    &quot;role&quot;: &quot;editor&quot;,
+    &quot;created_at&quot;: &quot;2026-03-02T10:00:00Z&quot;
+  }
+}</code></pre>
+</figure>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 3: Document Endpoints</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Path</th>
+<th style="text-align:left">Description</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">/documents</td>
+<td style="text-align:left">List documents</td>
+</tr>
+<tr>
+<td style="text-align:left">POST</td>
+<td style="text-align:left">/documents</td>
+<td style="text-align:left">Upload a new document</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">/documents/{id}</td>
+<td style="text-align:left">Get document metadata</td>
+</tr>
+<tr>
+<td style="text-align:left">GET</td>
+<td style="text-align:left">/documents/{id}/content</td>
+<td style="text-align:left">Download document content</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE</td>
+<td style="text-align:left">/documents/{id}</td>
+<td style="text-align:left">Delete a document</td>
+</tr>
+</tbody></table></figure>
+<p class="andf-p">API keys are limited to <strong>1,000 requests per minute</strong>. Enterprise plans have configurable limits up to 10,000 req/min. Rate limit information is returned in every response via headers:</p>
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Rate limit response headers</figcaption>
+<pre class="andf-pre language-http"><code class="language-http">X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 874
+X-RateLimit-Reset: 1740920460</code></pre>
+</figure>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ 429 Too Many Requests</div><p>When the rate limit is exceeded the API returns HTTP 429. Implement exponential back-off: wait 2^n seconds (n = retry attempt, max 60s).</p></div>
+<div class="andf-page-num">3</div>
+</div>
+
+<div class="andf-page" id="page-4">
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 4: HTTP Error Codes</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:center">Code</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Description</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:left">Bad Request</td>
+<td style="text-align:left">Malformed request body or missing required field</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:left">Unauthorised</td>
+<td style="text-align:left">Invalid or missing API key / token</td>
+</tr>
+<tr>
+<td style="text-align:center">403</td>
+<td style="text-align:left">Forbidden</td>
+<td style="text-align:left">Authenticated but insufficient permissions</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:left">Not Found</td>
+<td style="text-align:left">Resource does not exist</td>
+</tr>
+<tr>
+<td style="text-align:center">409</td>
+<td style="text-align:left">Conflict</td>
+<td style="text-align:left">Duplicate resource (e.g., email already registered)</td>
+</tr>
+<tr>
+<td style="text-align:center">422</td>
+<td style="text-align:left">Unprocessable</td>
+<td style="text-align:left">Validation error on field values</td>
+</tr>
+<tr>
+<td style="text-align:center">429</td>
+<td style="text-align:left">Too Many Requests</td>
+<td style="text-align:left">Rate limit exceeded</td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:left">Server Error</td>
+<td style="text-align:left">Unexpected server error — contact support</td>
+</tr>
+<tr>
+<td style="text-align:center">503</td>
+<td style="text-align:left">Service Unavailable</td>
+<td style="text-align:left">Planned maintenance or outage</td>
+</tr>
+</tbody></table></figure>
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Standard error response format</figcaption>
+<pre class="andf-pre language-json"><code class="language-json"># Error response shape
+{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: &quot;VALIDATION_ERROR&quot;,
+      &quot;field&quot;: &quot;email&quot;,
+      &quot;message&quot;: &quot;Must be a valid email address&quot;
+    }
+  ]
+}</code></pre>
+</figure>
+<p class="andf-p">Register a webhook endpoint to receive real-time push notifications when events occur. AcmeSuite signs each request with a secret so you can verify authenticity.</p>
+<ul class="andf-list">
+<li style="margin-left:0px"><code>document.created</code> — new document uploaded</li>
+<li style="margin-left:0px"><code>document.updated</code> — document content modified</li>
+<li style="margin-left:0px"><code>user.invited</code> — new user invited to workspace</li>
+<li style="margin-left:0px"><code>user.deactivated</code> — user account deactivated</li>
+<li style="margin-left:0px"><code>payment.succeeded</code> — subscription payment processed</li>
+<li style="margin-left:0px"><code>payment.failed</code> — payment attempt failed</li>
+</ul>
+<div class="andf-page-num">4</div>
+</div>
+
+<div class="andf-page" id="page-5">
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Webhook signature verification (Python)</figcaption>
+<pre class="andf-pre language-python"><code class="language-python">import hmac, hashlib
+
+def verify_webhook(payload_bytes: bytes, signature: str, secret: str) -&gt; bool:
+    &quot;&quot;&quot;Verify Acme webhook signature.&quot;&quot;&quot;
+    expected = hmac.new(
+        secret.encode(),
+        payload_bytes,
+        hashlib.sha256,
+    ).hexdigest()
+    return hmac.compare_digest(f&#x27;sha256={expected}&#x27;, signature)
+
+# In your request handler:
+sig = request.headers[&#x27;X-Acme-Signature&#x27;]
+if not verify_webhook(request.body, sig, WEBHOOK_SECRET):
+    return 401</code></pre>
+</figure>
+<p class="andf-p">The official Python SDK wraps the REST API with a Pythonic interface. Install via pip:</p>
+<figure class="andf-code-wrap">
+<pre class="andf-pre language-bash"><code class="language-bash">pip install acmesuite</code></pre>
+</figure>
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Python SDK quick start</figcaption>
+<pre class="andf-pre language-python"><code class="language-python">from acmesuite import AcmeClient
+
+client = AcmeClient(api_key=&#x27;YOUR_API_KEY&#x27;)
+
+# List users
+users = client.users.list(limit=50)
+for user in users:
+    print(user.name, user.email)
+
+# Upload document
+with open(&#x27;report.pdf&#x27;, &#x27;rb&#x27;) as f:
+    doc = client.documents.upload(
+        file=f,
+        name=&#x27;Q4 Report&#x27;,
+        folder=&#x27;finance&#x27;,
+    )
+print(f&#x27;Uploaded: {doc.id}&#x27;)</code></pre>
+</figure>
+<div class="andf-callout andf-callout-tip"><div class="andf-callout-title">💡 Pagination Helper</div><p>All list methods return an auto-paginating iterator. Use <code>client.users.list_all()</code> to lazily fetch every page.</p></div>
+<div class="andf-page-num">5</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+
+(function() {
+  var pages = document.querySelectorAll('.andf-page');
+  var totalPages = pages.length;
+  var currentPage = 1;
+  var zoom = 100;
+
+  var pageInfoEl = document.getElementById('andf-page-info');
+  var zoomSelect = document.getElementById('andf-zoom-select');
+  var viewer = document.getElementById('andf-viewer');
+
+  function updatePageInfo() {
+    if (pageInfoEl) pageInfoEl.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+  }
+
+  function scrollToPage(n) {
+    n = Math.max(1, Math.min(n, totalPages));
+    currentPage = n;
+    pages[n - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    updatePageInfo();
+  }
+
+  function applyZoom(z) {
+    zoom = Math.max(50, Math.min(200, z));
+    viewer.style.transform = 'scale(' + zoom / 100 + ')';
+    viewer.style.transformOrigin = 'top center';
+    viewer.style.marginBottom = (zoom > 100 ? (zoom - 100) * 2.97 + 'mm' : '0');
+    if (zoomSelect) zoomSelect.value = zoom;
+  }
+
+  // Intersection observer to track current page
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(pages, entry.target);
+        if (idx >= 0) { currentPage = idx + 1; updatePageInfo(); }
+      }
+    });
+  }, { threshold: 0.3 });
+  pages.forEach(function(p) { observer.observe(p); });
+
+  // Toolbar button wiring
+  var prevBtn = document.getElementById('andf-prev');
+  var nextBtn = document.getElementById('andf-next');
+  var zoomInBtn = document.getElementById('andf-zoom-in');
+  var zoomOutBtn = document.getElementById('andf-zoom-out');
+  var downloadBtn = document.getElementById('andf-download');
+  var tocBtn = document.getElementById('andf-toc-btn');
+  var toc = document.getElementById('andf-toc');
+
+  if (prevBtn) prevBtn.onclick = function() { scrollToPage(currentPage - 1); };
+  if (nextBtn) nextBtn.onclick = function() { scrollToPage(currentPage + 1); };
+  if (zoomInBtn) zoomInBtn.onclick = function() { applyZoom(zoom + 10); };
+  if (zoomOutBtn) zoomOutBtn.onclick = function() { applyZoom(zoom - 10); };
+  if (zoomSelect) zoomSelect.onchange = function() { applyZoom(parseInt(this.value)); };
+
+  if (downloadBtn) {
+    downloadBtn.onclick = function() {
+      var a = document.createElement('a');
+      a.href = window.location.href;
+      a.download = document.title + '.andf';
+      a.click();
+    };
+  }
+
+  if (tocBtn && toc) {
+    tocBtn.onclick = function() { toc.classList.toggle('open'); };
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') scrollToPage(currentPage + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') scrollToPage(currentPage - 1);
+    if (e.key === '+' || (e.key === '=' && e.ctrlKey)) { e.preventDefault(); applyZoom(zoom + 10); }
+    if (e.key === '-' && e.ctrlKey) { e.preventDefault(); applyZoom(zoom - 10); }
+    if (e.key === '0' && e.ctrlKey) { e.preventDefault(); applyZoom(100); }
+  });
+
+  updatePageInfo();
+})();
+
+</script>
+</body>
+</html>

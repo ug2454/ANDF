@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="andf-version" content="1.0">
+<meta name="generator" content="ANDF Python Library">
+<title>Attention Is All You Need: A Retrospective Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+<script type="application/andf+json">{"andf_version": "1.0", "document_id": "24cd04d7-9fee-4745-ba43-8670ebc14b57", "metadata": {"title": "Attention Is All You Need: A Retrospective Analysis", "subtitle": "Re-examining the transformer architecture five years later", "authors": ["Dr. Alice Chen", "Prof. Bob Martinez", "Dr. Carol Liu"], "created": "2026-03-02T17:28:38Z", "modified": "2026-03-02T17:28:38Z", "keywords": ["transformers", "attention", "deep learning", "NLP", "LLM"], "language": "en", "category": "Computer Science", "status": "published", "version": "2.1", "license": "CC BY 4.0"}, "layout": {"page_size": "A4", "orientation": "portrait", "margins": {"top": 25, "bottom": 25, "left": 25, "right": 25}, "columns": 1, "header": null, "footer": "page_number"}, "theme": {"name": "academic", "font_body": "Georgia, serif", "font_heading": "Georgia, serif", "font_mono": "Courier New, monospace", "font_size": 11, "line_height": 1.7, "colors": {"text": "#1a1a1a", "heading": "#000000", "link": "#0000EE", "muted": "#555555", "border": "#cccccc", "callout_info": "#e8f0fe", "callout_warning": "#fef3c7", "callout_error": "#fee2e2", "callout_success": "#dcfce7", "callout_tip": "#ede9fe", "code_bg": "#f6f8fa", "code_border": "#d0d7de"}}, "sections": [{"id": "abstract", "title": "Abstract", "role": "abstract", "blocks": ["blk_248715a8"], "subsections": []}, {"id": "introduction", "title": "1. Introduction", "role": "introduction", "blocks": ["blk_092cfc1d", "blk_85c17c21"], "subsections": []}, {"id": "background", "title": "2. Background", "role": "body", "blocks": ["blk_b85f1a0a", "blk_88b2fa1e", "blk_b4828750", "blk_cee43776", "blk_3cc3f745"], "subsections": []}, {"id": "scaling", "title": "3. Scaling Laws", "role": "body", "blocks": ["blk_2c47bdd7", "blk_32e7fd19", "blk_980a2e8f"], "subsections": []}, {"id": "emergence", "title": "4. Emergent Capabilities", "role": "body", "blocks": ["blk_372e2053", "blk_9b37c84b", "blk_080f08d0"], "subsections": []}, {"id": "open", "title": "5. Open Problems", "role": "conclusion", "blocks": ["blk_008ed899", "blk_46155a5f", "blk_de44c09e"], "subsections": []}, {"id": "conclusion", "title": "6. Conclusion", "role": "conclusion", "blocks": ["blk_620ee99c"], "subsections": []}], "blocks": {"blk_248715a8": {"type": "paragraph", "text": "The Transformer architecture [Vaswani2017], introduced in 2017, fundamentally changed the landscape of natural language processing and, more broadly, machine learning. In this retrospective, we revisit the original design decisions, trace the architectural evolution through GPT, BERT, and T5, and examine the emergent capabilities [Wei2022] that large-scale transformers have displayed. We find that the original paper's core insight — that attention mechanisms alone suffice for sequence modelling — has proven remarkably durable, while many practical details have evolved significantly.", "semantic": {"role": "abstract", "importance": 5}}, "blk_092cfc1d": {"type": "paragraph", "text": "Prior to 2017, the dominant paradigm for sequence-to-sequence tasks was the recurrent neural network (RNN) with LSTM cells. RNNs process tokens sequentially, making them difficult to parallelise and prone to vanishing gradients over long sequences. The Transformer replaced this with a purely attention-based architecture, enabling full parallelism during training and dramatically reducing wall-clock time.", "semantic": {"importance": 4}}, "blk_85c17c21": {"type": "paragraph", "text": "The impact was immediate: within two years BERT and GPT demonstrated that pre-training on large text corpora produced powerful representations that could be fine-tuned for virtually any downstream task [Brown2020]. This paper examines what made that transition possible and what questions remain open.", "semantic": {"importance": 4}}, "blk_b85f1a0a": {"type": "heading", "level": 3, "text": "2.1 Self-Attention", "semantic": {}}, "blk_88b2fa1e": {"type": "paragraph", "text": "Self-attention computes a weighted sum of values, where the weight for each value is determined by the compatibility of a query with the corresponding key. Formally, given queries **Q**, keys **K**, and values **V**:", "semantic": {}}, "blk_b4828750": {"type": "code", "language": "python", "code": "Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) * V\n\n# Multi-head variant\nMultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W_O\nhead_i = Attention(Q * W_Q_i, K * W_K_i, V * W_V_i)", "caption": "Scaled dot-product and multi-head attention", "line_numbers": false, "semantic": {}}, "blk_cee43776": {"type": "heading", "level": 3, "text": "2.2 Positional Encoding", "semantic": {}}, "blk_3cc3f745": {"type": "paragraph", "text": "Since attention is permutation-invariant, position information must be injected. The original Transformer used sinusoidal encodings, while later models learned positional embeddings or adopted rotary position embeddings (RoPE).", "semantic": {}}, "blk_2c47bdd7": {"type": "paragraph", "text": "One of the most significant findings of the post-2017 era is the existence of smooth power-law relationships between model size, dataset size, compute budget, and test loss. Empirically, cross-entropy loss L scales as:", "semantic": {}}, "blk_32e7fd19": {"type": "table", "caption": "Table 1: Scaling law exponents (approximate)", "headers": ["Factor", "Exponent (α)", "Description"], "rows": [["Parameters (N)", "0.076", "Holding data and compute fixed"], ["Tokens (D)", "0.095", "Holding parameters and compute fixed"], ["FLOPs (C)", "0.050", "Optimal allocation of compute budget"]], "align": ["left", "center", "left"], "semantic": {}}, "blk_980a2e8f": {"type": "callout", "variant": "tip", "title": "Practical Implication", "text": "For a fixed compute budget, it is better to train a smaller model on more data than a larger model on less data. This insight led to the Chinchilla family of models.", "semantic": {}}, "blk_372e2053": {"type": "paragraph", "text": "Wei et al. [Wei2022] documented capabilities that appear suddenly as models scale, including multi-step arithmetic, chain-of-thought reasoning, and few-shot in-context learning. These emergent abilities were not predicted by scaling laws and remain an active area of theoretical investigation.", "semantic": {"role": "result", "importance": 5}}, "blk_9b37c84b": {"type": "list", "ordered": false, "items": [{"text": "Multi-step arithmetic (>100B parameters)", "level": 0}, {"text": "Chain-of-thought reasoning", "level": 0}, {"text": "BIG-Bench Hard tasks", "level": 0}, {"text": "Instruction following without fine-tuning", "level": 0}, {"text": "Code synthesis from natural language", "level": 0}], "semantic": {}}, "blk_080f08d0": {"type": "callout", "variant": "warning", "title": "Measurement Artefact?", "text": "Some researchers argue that apparent emergence is a metric artefact: using calibrated probability metrics instead of discrete accuracy reveals smooth scaling. The debate is ongoing.", "semantic": {}}, "blk_008ed899": {"type": "paragraph", "text": "Despite remarkable progress, several fundamental questions remain unanswered:", "semantic": {"importance": 3}}, "blk_46155a5f": {"type": "list", "ordered": false, "items": [{"text": "**Interpretability**: Why do specific heads and layers encode specific knowledge?", "level": 0}, {"text": "**Efficiency**: Can we achieve similar performance with fewer parameters or less compute?", "level": 0}, {"text": "**Alignment**: How do we ensure models behave safely as capabilities scale?", "level": 0}, {"text": "**Compositionality**: Do transformers truly reason or do they pattern-match?", "level": 0}], "semantic": {}}, "blk_de44c09e": {"type": "quote", "text": "The history of science is not the history of a discipline gradually uncovering truth; it is a sequence of dominant paradigms, each eventually displaced by a better one.", "attribution": "Thomas Kuhn (paraphrased)", "style": "blockquote", "semantic": {}}, "blk_620ee99c": {"type": "paragraph", "text": "The Transformer has proven to be one of the most consequential architectural innovations in the history of machine learning. Its core mechanisms — multi-head self-attention and feed-forward sublayers — have remained remarkably stable even as scale has increased by six orders of magnitude. The next decade will likely bring further surprises.", "semantic": {"importance": 4}}}, "assets": {}, "references": [{"id": "ref_96240d4a", "type": "conference", "label": "Vaswani2017", "title": "Attention Is All You Need", "authors": ["Vaswani, A.", "Shazeer, N.", "Parmar, N.", "Uszkoreit, J."], "year": 2017, "doi": "10.48550/arXiv.1706.03762", "url": ""}, {"id": "ref_e58077f4", "type": "article", "label": "Brown2020", "title": "Language Models are Few-Shot Learners", "authors": ["Brown, T.", "Mann, B.", "Ryder, N."], "year": 2020, "doi": "10.48550/arXiv.2005.14165", "url": ""}, {"id": "ref_3f4bb561", "type": "article", "label": "Wei2022", "title": "Emergent Abilities of Large Language Models", "authors": ["Wei, J.", "Tay, Y.", "Bommasani, R."], "year": 2022, "doi": "10.48550/arXiv.2206.07682", "url": ""}], "ai": {"summary": "This paper provides a retrospective analysis of the Transformer architecture introduced by Vaswani et al. (2017), examining its impact on NLP, the emergence of large language models, and open research questions five years after publication.", "key_points": ["The Transformer replaced recurrence with self-attention, enabling massive parallelism.", "Scaling laws predict that performance improves predictably with compute and data.", "Emergent capabilities arise at scale, many of which were not anticipated in 2017.", "Open problems remain in interpretability, efficiency, and alignment."], "topics": [{"label": "Natural Language Processing", "confidence": 0.98}, {"label": "Deep Learning", "confidence": 0.97}, {"label": "Large Language Models", "confidence": 0.95}, {"label": "Attention Mechanisms", "confidence": 0.93}], "reading_time_minutes": 12, "complexity": "expert", "questions_answered": ["What is the transformer architecture?", "Why did attention replace recurrence?", "What are emergent capabilities in LLMs?"], "entities": {"people": ["Vaswani", "Brown", "Wei"], "organizations": ["Google Brain", "OpenAI", "DeepMind"], "technologies": ["Transformer", "BERT", "GPT", "T5"], "concepts": ["self-attention", "scaling laws", "emergent abilities", "few-shot learning"]}}}</script>
+<style>
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, serif;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #525659;
+  min-height: 100vh;
+}
+
+/* ─── Toolbar ─── */
+#andf-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: #3c4043;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toolbar button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background .15s;
+}
+#andf-toolbar button:hover { background: rgba(255,255,255,.1); }
+#andf-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#andf-page-info { white-space: nowrap; font-size: 13px; color: #bbb; }
+#andf-zoom-select {
+  background: #5a5f63;
+  border: none;
+  color: #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#andf-toc-btn { font-size: 18px !important; }
+
+/* ─── TOC sidebar ─── */
+#andf-toc {
+  position: fixed;
+  top: 48px; left: 0; bottom: 0;
+  width: 260px;
+  background: #2d2d2d;
+  color: #ddd;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .25s;
+  z-index: 900;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toc.open { transform: translateX(0); }
+#andf-toc h3 { color: #fff; margin-bottom: 12px; font-size: 14px; }
+#andf-toc a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+#andf-toc a:hover { color: #fff; border-left-color: #4a9eff; }
+
+/* ─── Viewer ─── */
+#andf-viewer {
+  padding-top: 68px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── Pages ─── */
+.andf-page {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25mm;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  position: relative;
+  page-break-after: always;
+}
+
+/* ─── Page number ─── */
+.andf-page-num {
+  position: absolute;
+  bottom: 12mm;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 9pt;
+  color: #999;
+}
+
+/* ─── Content ─── */
+.andf-h { font-family: Georgia, serif; color: #000000; margin: .6em 0 .3em; }
+.andf-h1 { font-size: 2em; font-weight: 700; margin-top: 0; border-bottom: 2px solid #cccccc; padding-bottom: .3em; }
+.andf-h2 { font-size: 1.5em; font-weight: 700; }
+.andf-h3 { font-size: 1.2em; font-weight: 600; }
+.andf-h4 { font-size: 1.05em; font-weight: 600; }
+.andf-h5 { font-size: 1em; font-weight: 600; }
+.andf-h6 { font-size: .95em; font-weight: 600; color: #555555; }
+
+.andf-p { margin: .5em 0; text-align: justify; }
+
+.andf-figure { margin: 1em 0; }
+.andf-align-center { text-align: center; }
+.andf-align-left { text-align: left; }
+.andf-align-right { text-align: right; }
+.andf-figure img { max-width: 100%; height: auto; border-radius: 4px; }
+.andf-image-placeholder {
+  background: #f6f8fa;
+  border: 1px dashed #cccccc;
+  padding: 40px;
+  text-align: center;
+  color: #555555;
+  border-radius: 4px;
+}
+figcaption { font-size: .85em; color: #555555; margin-top: .4em; text-align: center; }
+
+.andf-table-wrap { margin: 1em 0; overflow-x: auto; }
+.andf-table-caption { font-size: .9em; color: #555555; margin-bottom: .4em; font-style: italic; }
+.andf-table { width: 100%; border-collapse: collapse; font-size: .9em; }
+.andf-table th {
+  background: #f6f8fa;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid #cccccc;
+  text-align: left;
+}
+.andf-table td {
+  padding: 7px 12px;
+  border: 1px solid #cccccc;
+  vertical-align: top;
+}
+.andf-table tr:nth-child(even) td { background: #f6f8fa; }
+
+.andf-list { margin: .5em 0 .5em 1.5em; }
+.andf-list li { margin: .25em 0; }
+
+.andf-code-wrap { margin: 1em 0; }
+.andf-code-caption { font-size: .85em; color: #555555; margin-bottom: .25em; font-family: Courier New, monospace; }
+.andf-pre {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: Courier New, monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  white-space: pre;
+}
+.andf-pre code { background: none; border: none; padding: 0; }
+
+.andf-quote {
+  border-left: 4px solid #0000EE;
+  margin: 1em 0;
+  padding: .5em 1em;
+  color: #555555;
+  font-style: italic;
+}
+.andf-quote p { margin: 0 0 .3em; }
+.andf-quote cite { font-size: .9em; font-style: normal; }
+
+.andf-callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+.andf-callout-info    { background: #e8f0fe; border-color: #3b82f6; }
+.andf-callout-warning { background: #fef3c7; border-color: #f59e0b; }
+.andf-callout-error   { background: #fee2e2; border-color: #ef4444; }
+.andf-callout-success { background: #dcfce7; border-color: #22c55e; }
+.andf-callout-tip     { background: #ede9fe; border-color: #8b5cf6; }
+.andf-callout-title {
+  font-weight: 700;
+  margin-bottom: .4em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.andf-callout-icon { float: left; margin-right: 6px; }
+.andf-callout p { margin: 0; }
+
+.andf-hr { border: none; border-top: 1px solid #cccccc; margin: 1.2em 0; }
+
+code { font-family: Courier New, monospace; background: #f6f8fa; padding: 1px 4px; border-radius: 3px; font-size: .9em; }
+sup.ref { font-size: .75em; color: #0000EE; }
+
+/* ─── Cover page ─── */
+.andf-cover { padding-top: 30mm; text-align: center; }
+.andf-cover .andf-h1 { font-size: 2.4em; border: none; margin-bottom: .2em; }
+.andf-cover-subtitle { font-size: 1.2em; color: #555555; margin-bottom: 2em; }
+.andf-cover-authors { font-size: 1em; color: #1a1a1a; margin-bottom: .5em; }
+.andf-cover-date { font-size: .9em; color: #555555; }
+.andf-cover-divider { margin: 2em auto; width: 80px; height: 3px; background: #0000EE; border: none; }
+
+/* ─── Print ─── */
+@media print {
+  #andf-toolbar, #andf-toc { display: none !important; }
+  #andf-viewer { padding-top: 0; background: white; }
+  .andf-page { box-shadow: none; margin: 0; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 800px) {
+  .andf-page { width: 100%; min-height: auto; padding: 15mm 8mm; }
+  #andf-viewer { padding-top: 58px; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="andf-toolbar">
+  <button id="andf-toc-btn" title="Table of Contents">≡</button>
+  <span id="andf-title">Attention Is All You Need: A Retrospective Analysis</span>
+  <button id="andf-prev" title="Previous page">&#8592;</button>
+  <span id="andf-page-info">Page 1 / 1</span>
+  <button id="andf-next" title="Next page">&#8594;</button>
+  <button id="andf-zoom-out" title="Zoom out">&#8722;</button>
+  <select id="andf-zoom-select" title="Zoom">
+    <option value="50">50%</option>
+    <option value="75">75%</option>
+    <option value="100" selected>100%</option>
+    <option value="125">125%</option>
+    <option value="150">150%</option>
+    <option value="175">175%</option>
+    <option value="200">200%</option>
+  </select>
+  <button id="andf-zoom-in" title="Zoom in">&#43;</button>
+  <button id="andf-download" title="Save file">&#8595;</button>
+</div>
+
+<!-- TOC Sidebar -->
+<div id="andf-toc">
+  <h3>Contents</h3>
+<a href="#sec-abstract">Abstract</a>
+<a href="#sec-introduction">1. Introduction</a>
+<a href="#sec-background">2. Background</a>
+<a href="#sec-scaling">3. Scaling Laws</a>
+<a href="#sec-emergence">4. Emergent Capabilities</a>
+<a href="#sec-open">5. Open Problems</a>
+<a href="#sec-conclusion">6. Conclusion</a>
+</div>
+
+<!-- Viewer -->
+<div id="andf-viewer">
+<div class="andf-page" id="page-1">
+<div class="andf-cover">
+<h1 class="andf-h andf-h1">Attention Is All You Need: A Retrospective Analysis</h1>
+<p class="andf-cover-subtitle">Re-examining the transformer architecture five years later</p>
+<p class="andf-cover-authors">Dr. Alice Chen, Prof. Bob Martinez, Dr. Carol Liu</p>
+<p class="andf-cover-date">2026-03-02</p>
+<hr class="andf-cover-divider">
+</div>
+<p class="andf-p">The Transformer architecture <sup class="ref">[Vaswani2017]</sup>, introduced in 2017, fundamentally changed the landscape of natural language processing and, more broadly, machine learning. In this retrospective, we revisit the original design decisions, trace the architectural evolution through GPT, BERT, and T5, and examine the emergent capabilities <sup class="ref">[Wei2022]</sup> that large-scale transformers have displayed. We find that the original paper&#x27;s core insight — that attention mechanisms alone suffice for sequence modelling — has proven remarkably durable, while many practical details have evolved significantly.</p>
+<p class="andf-p">Prior to 2017, the dominant paradigm for sequence-to-sequence tasks was the recurrent neural network (RNN) with LSTM cells. RNNs process tokens sequentially, making them difficult to parallelise and prone to vanishing gradients over long sequences. The Transformer replaced this with a purely attention-based architecture, enabling full parallelism during training and dramatically reducing wall-clock time.</p>
+<p class="andf-p">The impact was immediate: within two years BERT and GPT demonstrated that pre-training on large text corpora produced powerful representations that could be fine-tuned for virtually any downstream task <sup class="ref">[Brown2020]</sup>. This paper examines what made that transition possible and what questions remain open.</p>
+<h3 class="andf-h andf-h3">2.1 Self-Attention</h3>
+<p class="andf-p">Self-attention computes a weighted sum of values, where the weight for each value is determined by the compatibility of a query with the corresponding key. Formally, given queries <strong>Q</strong>, keys <strong>K</strong>, and values <strong>V</strong>:</p>
+<figure class="andf-code-wrap">
+<figcaption class="andf-code-caption">Scaled dot-product and multi-head attention</figcaption>
+<pre class="andf-pre language-python"><code class="language-python">Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) * V
+
+# Multi-head variant
+MultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W_O
+head_i = Attention(Q * W_Q_i, K * W_K_i, V * W_V_i)</code></pre>
+</figure>
+<h3 class="andf-h andf-h3">2.2 Positional Encoding</h3>
+<div class="andf-page-num">1</div>
+</div>
+
+<div class="andf-page" id="page-2">
+<p class="andf-p">Since attention is permutation-invariant, position information must be injected. The original Transformer used sinusoidal encodings, while later models learned positional embeddings or adopted rotary position embeddings (RoPE).</p>
+<p class="andf-p">One of the most significant findings of the post-2017 era is the existence of smooth power-law relationships between model size, dataset size, compute budget, and test loss. Empirically, cross-entropy loss L scales as:</p>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 1: Scaling law exponents (approximate)</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Factor</th>
+<th style="text-align:center">Exponent (α)</th>
+<th style="text-align:left">Description</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Parameters (N)</td>
+<td style="text-align:center">0.076</td>
+<td style="text-align:left">Holding data and compute fixed</td>
+</tr>
+<tr>
+<td style="text-align:left">Tokens (D)</td>
+<td style="text-align:center">0.095</td>
+<td style="text-align:left">Holding parameters and compute fixed</td>
+</tr>
+<tr>
+<td style="text-align:left">FLOPs (C)</td>
+<td style="text-align:center">0.050</td>
+<td style="text-align:left">Optimal allocation of compute budget</td>
+</tr>
+</tbody></table></figure>
+<div class="andf-callout andf-callout-tip"><div class="andf-callout-title">💡 Practical Implication</div><p>For a fixed compute budget, it is better to train a smaller model on more data than a larger model on less data. This insight led to the Chinchilla family of models.</p></div>
+<p class="andf-p">Wei et al. <sup class="ref">[Wei2022]</sup> documented capabilities that appear suddenly as models scale, including multi-step arithmetic, chain-of-thought reasoning, and few-shot in-context learning. These emergent abilities were not predicted by scaling laws and remain an active area of theoretical investigation.</p>
+<ul class="andf-list">
+<li style="margin-left:0px">Multi-step arithmetic (&gt;100B parameters)</li>
+<li style="margin-left:0px">Chain-of-thought reasoning</li>
+<li style="margin-left:0px">BIG-Bench Hard tasks</li>
+<li style="margin-left:0px">Instruction following without fine-tuning</li>
+<li style="margin-left:0px">Code synthesis from natural language</li>
+</ul>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ Measurement Artefact?</div><p>Some researchers argue that apparent emergence is a metric artefact: using calibrated probability metrics instead of discrete accuracy reveals smooth scaling. The debate is ongoing.</p></div>
+<p class="andf-p">Despite remarkable progress, several fundamental questions remain unanswered:</p>
+<ul class="andf-list">
+<li style="margin-left:0px"><strong>Interpretability</strong>: Why do specific heads and layers encode specific knowledge?</li>
+<li style="margin-left:0px"><strong>Efficiency</strong>: Can we achieve similar performance with fewer parameters or less compute?</li>
+<li style="margin-left:0px"><strong>Alignment</strong>: How do we ensure models behave safely as capabilities scale?</li>
+<li style="margin-left:0px"><strong>Compositionality</strong>: Do transformers truly reason or do they pattern-match?</li>
+</ul>
+<blockquote class="andf-quote">
+<p>The history of science is not the history of a discipline gradually uncovering truth; it is a sequence of dominant paradigms, each eventually displaced by a better one.</p>
+<cite>— Thomas Kuhn (paraphrased)</cite>
+</blockquote>
+<div class="andf-page-num">2</div>
+</div>
+
+<div class="andf-page" id="page-3">
+<p class="andf-p">The Transformer has proven to be one of the most consequential architectural innovations in the history of machine learning. Its core mechanisms — multi-head self-attention and feed-forward sublayers — have remained remarkably stable even as scale has increased by six orders of magnitude. The next decade will likely bring further surprises.</p>
+<div class="andf-page-num">3</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+
+(function() {
+  var pages = document.querySelectorAll('.andf-page');
+  var totalPages = pages.length;
+  var currentPage = 1;
+  var zoom = 100;
+
+  var pageInfoEl = document.getElementById('andf-page-info');
+  var zoomSelect = document.getElementById('andf-zoom-select');
+  var viewer = document.getElementById('andf-viewer');
+
+  function updatePageInfo() {
+    if (pageInfoEl) pageInfoEl.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+  }
+
+  function scrollToPage(n) {
+    n = Math.max(1, Math.min(n, totalPages));
+    currentPage = n;
+    pages[n - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    updatePageInfo();
+  }
+
+  function applyZoom(z) {
+    zoom = Math.max(50, Math.min(200, z));
+    viewer.style.transform = 'scale(' + zoom / 100 + ')';
+    viewer.style.transformOrigin = 'top center';
+    viewer.style.marginBottom = (zoom > 100 ? (zoom - 100) * 2.97 + 'mm' : '0');
+    if (zoomSelect) zoomSelect.value = zoom;
+  }
+
+  // Intersection observer to track current page
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(pages, entry.target);
+        if (idx >= 0) { currentPage = idx + 1; updatePageInfo(); }
+      }
+    });
+  }, { threshold: 0.3 });
+  pages.forEach(function(p) { observer.observe(p); });
+
+  // Toolbar button wiring
+  var prevBtn = document.getElementById('andf-prev');
+  var nextBtn = document.getElementById('andf-next');
+  var zoomInBtn = document.getElementById('andf-zoom-in');
+  var zoomOutBtn = document.getElementById('andf-zoom-out');
+  var downloadBtn = document.getElementById('andf-download');
+  var tocBtn = document.getElementById('andf-toc-btn');
+  var toc = document.getElementById('andf-toc');
+
+  if (prevBtn) prevBtn.onclick = function() { scrollToPage(currentPage - 1); };
+  if (nextBtn) nextBtn.onclick = function() { scrollToPage(currentPage + 1); };
+  if (zoomInBtn) zoomInBtn.onclick = function() { applyZoom(zoom + 10); };
+  if (zoomOutBtn) zoomOutBtn.onclick = function() { applyZoom(zoom - 10); };
+  if (zoomSelect) zoomSelect.onchange = function() { applyZoom(parseInt(this.value)); };
+
+  if (downloadBtn) {
+    downloadBtn.onclick = function() {
+      var a = document.createElement('a');
+      a.href = window.location.href;
+      a.download = document.title + '.andf';
+      a.click();
+    };
+  }
+
+  if (tocBtn && toc) {
+    tocBtn.onclick = function() { toc.classList.toggle('open'); };
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') scrollToPage(currentPage + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') scrollToPage(currentPage - 1);
+    if (e.key === '+' || (e.key === '=' && e.ctrlKey)) { e.preventDefault(); applyZoom(zoom + 10); }
+    if (e.key === '-' && e.ctrlKey) { e.preventDefault(); applyZoom(zoom - 10); }
+    if (e.key === '0' && e.ctrlKey) { e.preventDefault(); applyZoom(100); }
+  });
+
+  updatePageInfo();
+})();
+
+</script>
+</body>
+</html>

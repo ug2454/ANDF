@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="andf-version" content="1.0">
+<meta name="generator" content="ANDF Python Library">
+<title>Q4 2025 Business Performance Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+<script type="application/andf+json">{"andf_version": "1.0", "document_id": "6d62f24e-e251-4fdc-8c2c-86cd67ee24eb", "metadata": {"title": "Q4 2025 Business Performance Report", "subtitle": "Executive Summary & Strategic Outlook", "authors": ["Finance Team", "Strategy Office"], "created": "2026-03-02T17:28:38Z", "modified": "2026-03-02T17:28:38Z", "keywords": ["quarterly report", "revenue", "KPIs", "2025"], "language": "en", "category": "Business", "status": "final", "version": "1.0", "license": "Confidential"}, "layout": {"page_size": "A4", "orientation": "portrait", "margins": {"top": 25, "bottom": 25, "left": 25, "right": 25}, "columns": 1, "header": null, "footer": "page_number"}, "theme": {"name": "corporate", "font_body": "Arial, sans-serif", "font_heading": "Arial, sans-serif", "font_mono": "Consolas, monospace", "font_size": 10, "line_height": 1.5, "colors": {"text": "#212121", "heading": "#1565c0", "link": "#1565c0", "muted": "#757575", "border": "#e0e0e0", "callout_info": "#e3f2fd", "callout_warning": "#fff8e1", "callout_error": "#ffebee", "callout_success": "#e8f5e9", "callout_tip": "#f3e5f5", "code_bg": "#f5f5f5", "code_border": "#bdbdbd"}}, "sections": [{"id": "exec-summary", "title": "Executive Summary", "role": "abstract", "blocks": ["blk_e4923b9c", "blk_3983b4bd"], "subsections": []}, {"id": "kpis", "title": "Key Performance Indicators", "role": "body", "blocks": ["blk_998b2f48"], "subsections": []}, {"id": "revenue", "title": "Revenue Analysis", "role": "body", "blocks": ["blk_edd70cee", "blk_54063a6a", "blk_15bfd5a5"], "subsections": []}, {"id": "costs", "title": "Cost Structure", "role": "body", "blocks": ["blk_077fac71", "blk_6f5aae09"], "subsections": []}, {"id": "risks", "title": "Risk Register", "role": "body", "blocks": ["blk_5dcb5047", "blk_4edf8b55"], "subsections": []}, {"id": "outlook", "title": "Q1 2026 Outlook", "role": "conclusion", "blocks": ["blk_963aca76", "blk_01b30683"], "subsections": []}], "blocks": {"blk_e4923b9c": {"type": "paragraph", "text": "Acme Corporation delivered its strongest quarter on record in Q4 2025, with revenue of **$4.2 billion**, a 23% increase year-over-year. Operating income grew to **$1.3B** as efficiency initiatives offset headcount growth. Our SaaS Annual Recurring Revenue crossed the **$1 billion milestone** for the first time.", "semantic": {}}, "blk_3983b4bd": {"type": "callout", "variant": "success", "title": "Record Quarter", "text": "Q4 2025 marks our highest-ever quarterly revenue, operating income, and NPS score.", "semantic": {}}, "blk_998b2f48": {"type": "table", "caption": "Table 1: Q4 2025 KPI Dashboard", "headers": ["Metric", "Q4 2025", "Q4 2024", "Change", "Target"], "rows": [["Revenue", "$4.20B", "$3.41B", "+23%", "$4.10B ✓"], ["Operating Income", "$1.30B", "$0.95B", "+37%", "$1.20B ✓"], ["Operating Margin", "31%", "28%", "+3pp", "30% ✓"], ["SaaS ARR", "$1.02B", "$0.74B", "+38%", "$1.00B ✓"], ["Gross Margin", "68%", "65%", "+3pp", "67% ✓"], ["Net Promoter Score", "72", "65", "+7", "70 ✓"], ["Headcount", "8,400", "7,100", "+18%", "8,500 ✓"], ["Customer Churn (SaaS)", "1.8%", "2.4%", "-0.6pp", "<2.0% ✓"]], "align": ["left", "right", "right", "center", "center"], "semantic": {}}, "blk_edd70cee": {"type": "heading", "level": 3, "text": "By Segment", "semantic": {}}, "blk_54063a6a": {"type": "table", "caption": "Table 2: Revenue by Business Segment", "headers": ["Segment", "Q4 2025 ($M)", "Q4 2024 ($M)", "Growth"], "rows": [["Cloud SaaS", "1,850", "1,330", "+39%"], ["Enterprise Licences", "1,100", "980", "+12%"], ["Professional Services", "680", "620", "+10%"], ["Hardware & Devices", "570", "480", "+19%"], ["**Total**", "**4,200**", "**3,410**", "**+23%**"]], "align": ["left", "right", "right", "center"], "semantic": {}}, "blk_15bfd5a5": {"type": "callout", "variant": "info", "title": "SaaS Acceleration", "text": "Cloud SaaS grew 39% — significantly above our 30% target — driven by the enterprise AI platform launch in October and strong renewal rates in the financial services vertical.", "semantic": {}}, "blk_077fac71": {"type": "paragraph", "text": "Total operating expenses were $2.9B (69% of revenue), down from 72% in Q4 2024. The improvement reflects automation in customer support (−$42M), real estate rationalisation (−$18M), and vendor contract renegotiations (−$27M).", "semantic": {}}, "blk_6f5aae09": {"type": "table", "caption": "Table 3: Operating Expense Breakdown", "headers": ["Category", "Q4 2025 ($M)", "% of Revenue"], "rows": [["R&D", "840", "20%"], ["Sales & Marketing", "630", "15%"], ["General & Administrative", "252", "6%"], ["Cost of Revenue", "1,176", "28%"], ["**Total OpEx**", "**2,898**", "**69%**"]], "align": ["left", "right", "right"], "semantic": {}}, "blk_5dcb5047": {"type": "callout", "variant": "warning", "title": "EU Regulatory Risk", "text": "The European AI Act compliance deadline falls in Q2 2026. Our legal team estimates $40–60M in compliance costs and potential delays to three product lines.", "semantic": {}}, "blk_4edf8b55": {"type": "callout", "variant": "warning", "title": "Hardware Supply Chain", "text": "GPU availability remains constrained. Delivery lead times for the H200 cluster expansion have extended to 22 weeks, potentially delaying the AI platform scale-up.", "semantic": {}}, "blk_963aca76": {"type": "paragraph", "text": "We guide Q1 2026 revenue in the range of **$4.3B – $4.5B** (+22%–32% YoY), with operating margin of **30%–32%**. SaaS ARR is expected to reach **$1.15B** by end of Q1.", "semantic": {}}, "blk_01b30683": {"type": "list", "ordered": true, "items": [{"text": "Launch AI Copilot v3 across all SaaS products (January 15)", "level": 0}, {"text": "Complete EMEA data-centre expansion (February)", "level": 0}, {"text": "Submit EU AI Act compliance documentation (March 31)", "level": 0}, {"text": "Close hardware supply chain alternative (H100 backup)", "level": 0}], "semantic": {}}}, "assets": {}, "references": [], "ai": {"summary": "Q4 2025 showed 23% revenue growth YoY to $4.2B, with operating margin expanding to 31%. SaaS ARR crossed $1B. Headcount grew to 8,400. Key risks include regulatory uncertainty in EU markets and supply chain constraints for hardware division.", "key_points": ["Revenue: $4.2B (+23% YoY)", "Operating margin: 31% (up from 28%)", "SaaS ARR: $1.02B (first $1B quarter)", "Net Promoter Score: 72 (industry best)"], "topics": [{"label": "Financial Performance", "confidence": 0.99}, {"label": "SaaS Metrics", "confidence": 0.95}, {"label": "Strategic Planning", "confidence": 0.88}], "reading_time_minutes": 8, "complexity": "medium", "questions_answered": [], "entities": {"people": [], "organizations": [], "technologies": [], "concepts": []}}}</script>
+<style>
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: #212121;
+  background: #525659;
+  min-height: 100vh;
+}
+
+/* ─── Toolbar ─── */
+#andf-toolbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: #3c4043;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5);
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toolbar button {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background .15s;
+}
+#andf-toolbar button:hover { background: rgba(255,255,255,.1); }
+#andf-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#andf-page-info { white-space: nowrap; font-size: 13px; color: #bbb; }
+#andf-zoom-select {
+  background: #5a5f63;
+  border: none;
+  color: #e0e0e0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#andf-toc-btn { font-size: 18px !important; }
+
+/* ─── TOC sidebar ─── */
+#andf-toc {
+  position: fixed;
+  top: 48px; left: 0; bottom: 0;
+  width: 260px;
+  background: #2d2d2d;
+  color: #ddd;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .25s;
+  z-index: 900;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+}
+#andf-toc.open { transform: translateX(0); }
+#andf-toc h3 { color: #fff; margin-bottom: 12px; font-size: 14px; }
+#andf-toc a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  margin-bottom: 2px;
+}
+#andf-toc a:hover { color: #fff; border-left-color: #4a9eff; }
+
+/* ─── Viewer ─── */
+#andf-viewer {
+  padding-top: 68px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ─── Pages ─── */
+.andf-page {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25mm;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  position: relative;
+  page-break-after: always;
+}
+
+/* ─── Page number ─── */
+.andf-page-num {
+  position: absolute;
+  bottom: 12mm;
+  left: 0; right: 0;
+  text-align: center;
+  font-size: 9pt;
+  color: #999;
+}
+
+/* ─── Content ─── */
+.andf-h { font-family: Arial, sans-serif; color: #1565c0; margin: .6em 0 .3em; }
+.andf-h1 { font-size: 2em; font-weight: 700; margin-top: 0; border-bottom: 2px solid #e0e0e0; padding-bottom: .3em; }
+.andf-h2 { font-size: 1.5em; font-weight: 700; }
+.andf-h3 { font-size: 1.2em; font-weight: 600; }
+.andf-h4 { font-size: 1.05em; font-weight: 600; }
+.andf-h5 { font-size: 1em; font-weight: 600; }
+.andf-h6 { font-size: .95em; font-weight: 600; color: #757575; }
+
+.andf-p { margin: .5em 0; text-align: justify; }
+
+.andf-figure { margin: 1em 0; }
+.andf-align-center { text-align: center; }
+.andf-align-left { text-align: left; }
+.andf-align-right { text-align: right; }
+.andf-figure img { max-width: 100%; height: auto; border-radius: 4px; }
+.andf-image-placeholder {
+  background: #f5f5f5;
+  border: 1px dashed #e0e0e0;
+  padding: 40px;
+  text-align: center;
+  color: #757575;
+  border-radius: 4px;
+}
+figcaption { font-size: .85em; color: #757575; margin-top: .4em; text-align: center; }
+
+.andf-table-wrap { margin: 1em 0; overflow-x: auto; }
+.andf-table-caption { font-size: .9em; color: #757575; margin-bottom: .4em; font-style: italic; }
+.andf-table { width: 100%; border-collapse: collapse; font-size: .9em; }
+.andf-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+.andf-table td {
+  padding: 7px 12px;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+}
+.andf-table tr:nth-child(even) td { background: #f5f5f5; }
+
+.andf-list { margin: .5em 0 .5em 1.5em; }
+.andf-list li { margin: .25em 0; }
+
+.andf-code-wrap { margin: 1em 0; }
+.andf-code-caption { font-size: .85em; color: #757575; margin-bottom: .25em; font-family: Consolas, monospace; }
+.andf-pre {
+  background: #f5f5f5;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-family: Consolas, monospace;
+  font-size: 9pt;
+  line-height: 1.5;
+  white-space: pre;
+}
+.andf-pre code { background: none; border: none; padding: 0; }
+
+.andf-quote {
+  border-left: 4px solid #1565c0;
+  margin: 1em 0;
+  padding: .5em 1em;
+  color: #757575;
+  font-style: italic;
+}
+.andf-quote p { margin: 0 0 .3em; }
+.andf-quote cite { font-size: .9em; font-style: normal; }
+
+.andf-callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 1em 0;
+  border-left: 4px solid;
+}
+.andf-callout-info    { background: #e3f2fd; border-color: #3b82f6; }
+.andf-callout-warning { background: #fff8e1; border-color: #f59e0b; }
+.andf-callout-error   { background: #ffebee; border-color: #ef4444; }
+.andf-callout-success { background: #e8f5e9; border-color: #22c55e; }
+.andf-callout-tip     { background: #f3e5f5; border-color: #8b5cf6; }
+.andf-callout-title {
+  font-weight: 700;
+  margin-bottom: .4em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.andf-callout-icon { float: left; margin-right: 6px; }
+.andf-callout p { margin: 0; }
+
+.andf-hr { border: none; border-top: 1px solid #e0e0e0; margin: 1.2em 0; }
+
+code { font-family: Consolas, monospace; background: #f5f5f5; padding: 1px 4px; border-radius: 3px; font-size: .9em; }
+sup.ref { font-size: .75em; color: #1565c0; }
+
+/* ─── Cover page ─── */
+.andf-cover { padding-top: 30mm; text-align: center; }
+.andf-cover .andf-h1 { font-size: 2.4em; border: none; margin-bottom: .2em; }
+.andf-cover-subtitle { font-size: 1.2em; color: #757575; margin-bottom: 2em; }
+.andf-cover-authors { font-size: 1em; color: #212121; margin-bottom: .5em; }
+.andf-cover-date { font-size: .9em; color: #757575; }
+.andf-cover-divider { margin: 2em auto; width: 80px; height: 3px; background: #1565c0; border: none; }
+
+/* ─── Print ─── */
+@media print {
+  #andf-toolbar, #andf-toc { display: none !important; }
+  #andf-viewer { padding-top: 0; background: white; }
+  .andf-page { box-shadow: none; margin: 0; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 800px) {
+  .andf-page { width: 100%; min-height: auto; padding: 15mm 8mm; }
+  #andf-viewer { padding-top: 58px; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="andf-toolbar">
+  <button id="andf-toc-btn" title="Table of Contents">≡</button>
+  <span id="andf-title">Q4 2025 Business Performance Report</span>
+  <button id="andf-prev" title="Previous page">&#8592;</button>
+  <span id="andf-page-info">Page 1 / 1</span>
+  <button id="andf-next" title="Next page">&#8594;</button>
+  <button id="andf-zoom-out" title="Zoom out">&#8722;</button>
+  <select id="andf-zoom-select" title="Zoom">
+    <option value="50">50%</option>
+    <option value="75">75%</option>
+    <option value="100" selected>100%</option>
+    <option value="125">125%</option>
+    <option value="150">150%</option>
+    <option value="175">175%</option>
+    <option value="200">200%</option>
+  </select>
+  <button id="andf-zoom-in" title="Zoom in">&#43;</button>
+  <button id="andf-download" title="Save file">&#8595;</button>
+</div>
+
+<!-- TOC Sidebar -->
+<div id="andf-toc">
+  <h3>Contents</h3>
+<a href="#sec-exec-summary">Executive Summary</a>
+<a href="#sec-kpis">Key Performance Indicators</a>
+<a href="#sec-revenue">Revenue Analysis</a>
+<a href="#sec-costs">Cost Structure</a>
+<a href="#sec-risks">Risk Register</a>
+<a href="#sec-outlook">Q1 2026 Outlook</a>
+</div>
+
+<!-- Viewer -->
+<div id="andf-viewer">
+<div class="andf-page" id="page-1">
+<div class="andf-cover">
+<h1 class="andf-h andf-h1">Q4 2025 Business Performance Report</h1>
+<p class="andf-cover-subtitle">Executive Summary &amp; Strategic Outlook</p>
+<p class="andf-cover-authors">Finance Team, Strategy Office</p>
+<p class="andf-cover-date">2026-03-02</p>
+<hr class="andf-cover-divider">
+</div>
+<p class="andf-p">Acme Corporation delivered its strongest quarter on record in Q4 2025, with revenue of <strong>$4.2 billion</strong>, a 23% increase year-over-year. Operating income grew to <strong>$1.3B</strong> as efficiency initiatives offset headcount growth. Our SaaS Annual Recurring Revenue crossed the <strong>$1 billion milestone</strong> for the first time.</p>
+<div class="andf-callout andf-callout-success"><div class="andf-callout-title">✔ Record Quarter</div><p>Q4 2025 marks our highest-ever quarterly revenue, operating income, and NPS score.</p></div>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 1: Q4 2025 KPI Dashboard</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Metric</th>
+<th style="text-align:right">Q4 2025</th>
+<th style="text-align:right">Q4 2024</th>
+<th style="text-align:center">Change</th>
+<th style="text-align:center">Target</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Revenue</td>
+<td style="text-align:right">$4.20B</td>
+<td style="text-align:right">$3.41B</td>
+<td style="text-align:center">+23%</td>
+<td style="text-align:center">$4.10B ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Operating Income</td>
+<td style="text-align:right">$1.30B</td>
+<td style="text-align:right">$0.95B</td>
+<td style="text-align:center">+37%</td>
+<td style="text-align:center">$1.20B ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Operating Margin</td>
+<td style="text-align:right">31%</td>
+<td style="text-align:right">28%</td>
+<td style="text-align:center">+3pp</td>
+<td style="text-align:center">30% ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">SaaS ARR</td>
+<td style="text-align:right">$1.02B</td>
+<td style="text-align:right">$0.74B</td>
+<td style="text-align:center">+38%</td>
+<td style="text-align:center">$1.00B ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Gross Margin</td>
+<td style="text-align:right">68%</td>
+<td style="text-align:right">65%</td>
+<td style="text-align:center">+3pp</td>
+<td style="text-align:center">67% ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Net Promoter Score</td>
+<td style="text-align:right">72</td>
+<td style="text-align:right">65</td>
+<td style="text-align:center">+7</td>
+<td style="text-align:center">70 ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Headcount</td>
+<td style="text-align:right">8,400</td>
+<td style="text-align:right">7,100</td>
+<td style="text-align:center">+18%</td>
+<td style="text-align:center">8,500 ✓</td>
+</tr>
+<tr>
+<td style="text-align:left">Customer Churn (SaaS)</td>
+<td style="text-align:right">1.8%</td>
+<td style="text-align:right">2.4%</td>
+<td style="text-align:center">-0.6pp</td>
+<td style="text-align:center">&lt;2.0% ✓</td>
+</tr>
+</tbody></table></figure>
+<h3 class="andf-h andf-h3">By Segment</h3>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 2: Revenue by Business Segment</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Segment</th>
+<th style="text-align:right">Q4 2025 ($M)</th>
+<th style="text-align:right">Q4 2024 ($M)</th>
+<th style="text-align:center">Growth</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">Cloud SaaS</td>
+<td style="text-align:right">1,850</td>
+<td style="text-align:right">1,330</td>
+<td style="text-align:center">+39%</td>
+</tr>
+<tr>
+<td style="text-align:left">Enterprise Licences</td>
+<td style="text-align:right">1,100</td>
+<td style="text-align:right">980</td>
+<td style="text-align:center">+12%</td>
+</tr>
+<tr>
+<td style="text-align:left">Professional Services</td>
+<td style="text-align:right">680</td>
+<td style="text-align:right">620</td>
+<td style="text-align:center">+10%</td>
+</tr>
+<tr>
+<td style="text-align:left">Hardware &amp; Devices</td>
+<td style="text-align:right">570</td>
+<td style="text-align:right">480</td>
+<td style="text-align:center">+19%</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Total</strong></td>
+<td style="text-align:right"><strong>4,200</strong></td>
+<td style="text-align:right"><strong>3,410</strong></td>
+<td style="text-align:center"><strong>+23%</strong></td>
+</tr>
+</tbody></table></figure>
+<div class="andf-page-num">1</div>
+</div>
+
+<div class="andf-page" id="page-2">
+<div class="andf-callout andf-callout-info"><div class="andf-callout-title">ℹ SaaS Acceleration</div><p>Cloud SaaS grew 39% — significantly above our 30% target — driven by the enterprise AI platform launch in October and strong renewal rates in the financial services vertical.</p></div>
+<p class="andf-p">Total operating expenses were $2.9B (69% of revenue), down from 72% in Q4 2024. The improvement reflects automation in customer support (−$42M), real estate rationalisation (−$18M), and vendor contract renegotiations (−$27M).</p>
+<figure class="andf-table-wrap">
+<figcaption class="andf-table-caption">Table 3: Operating Expense Breakdown</figcaption>
+<table class="andf-table"><thead><tr>
+<th style="text-align:left">Category</th>
+<th style="text-align:right">Q4 2025 ($M)</th>
+<th style="text-align:right">% of Revenue</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align:left">R&amp;D</td>
+<td style="text-align:right">840</td>
+<td style="text-align:right">20%</td>
+</tr>
+<tr>
+<td style="text-align:left">Sales &amp; Marketing</td>
+<td style="text-align:right">630</td>
+<td style="text-align:right">15%</td>
+</tr>
+<tr>
+<td style="text-align:left">General &amp; Administrative</td>
+<td style="text-align:right">252</td>
+<td style="text-align:right">6%</td>
+</tr>
+<tr>
+<td style="text-align:left">Cost of Revenue</td>
+<td style="text-align:right">1,176</td>
+<td style="text-align:right">28%</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Total OpEx</strong></td>
+<td style="text-align:right"><strong>2,898</strong></td>
+<td style="text-align:right"><strong>69%</strong></td>
+</tr>
+</tbody></table></figure>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ EU Regulatory Risk</div><p>The European AI Act compliance deadline falls in Q2 2026. Our legal team estimates $40–60M in compliance costs and potential delays to three product lines.</p></div>
+<div class="andf-callout andf-callout-warning"><div class="andf-callout-title">⚠ Hardware Supply Chain</div><p>GPU availability remains constrained. Delivery lead times for the H200 cluster expansion have extended to 22 weeks, potentially delaying the AI platform scale-up.</p></div>
+<p class="andf-p">We guide Q1 2026 revenue in the range of <strong>$4.3B – $4.5B</strong> (+22%–32% YoY), with operating margin of <strong>30%–32%</strong>. SaaS ARR is expected to reach <strong>$1.15B</strong> by end of Q1.</p>
+<ol class="andf-list">
+<li style="margin-left:0px">Launch AI Copilot v3 across all SaaS products (January 15)</li>
+<li style="margin-left:0px">Complete EMEA data-centre expansion (February)</li>
+<li style="margin-left:0px">Submit EU AI Act compliance documentation (March 31)</li>
+<li style="margin-left:0px">Close hardware supply chain alternative (H100 backup)</li>
+</ol>
+<div class="andf-page-num">2</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+
+(function() {
+  var pages = document.querySelectorAll('.andf-page');
+  var totalPages = pages.length;
+  var currentPage = 1;
+  var zoom = 100;
+
+  var pageInfoEl = document.getElementById('andf-page-info');
+  var zoomSelect = document.getElementById('andf-zoom-select');
+  var viewer = document.getElementById('andf-viewer');
+
+  function updatePageInfo() {
+    if (pageInfoEl) pageInfoEl.textContent = 'Page ' + currentPage + ' / ' + totalPages;
+  }
+
+  function scrollToPage(n) {
+    n = Math.max(1, Math.min(n, totalPages));
+    currentPage = n;
+    pages[n - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    updatePageInfo();
+  }
+
+  function applyZoom(z) {
+    zoom = Math.max(50, Math.min(200, z));
+    viewer.style.transform = 'scale(' + zoom / 100 + ')';
+    viewer.style.transformOrigin = 'top center';
+    viewer.style.marginBottom = (zoom > 100 ? (zoom - 100) * 2.97 + 'mm' : '0');
+    if (zoomSelect) zoomSelect.value = zoom;
+  }
+
+  // Intersection observer to track current page
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(pages, entry.target);
+        if (idx >= 0) { currentPage = idx + 1; updatePageInfo(); }
+      }
+    });
+  }, { threshold: 0.3 });
+  pages.forEach(function(p) { observer.observe(p); });
+
+  // Toolbar button wiring
+  var prevBtn = document.getElementById('andf-prev');
+  var nextBtn = document.getElementById('andf-next');
+  var zoomInBtn = document.getElementById('andf-zoom-in');
+  var zoomOutBtn = document.getElementById('andf-zoom-out');
+  var downloadBtn = document.getElementById('andf-download');
+  var tocBtn = document.getElementById('andf-toc-btn');
+  var toc = document.getElementById('andf-toc');
+
+  if (prevBtn) prevBtn.onclick = function() { scrollToPage(currentPage - 1); };
+  if (nextBtn) nextBtn.onclick = function() { scrollToPage(currentPage + 1); };
+  if (zoomInBtn) zoomInBtn.onclick = function() { applyZoom(zoom + 10); };
+  if (zoomOutBtn) zoomOutBtn.onclick = function() { applyZoom(zoom - 10); };
+  if (zoomSelect) zoomSelect.onchange = function() { applyZoom(parseInt(this.value)); };
+
+  if (downloadBtn) {
+    downloadBtn.onclick = function() {
+      var a = document.createElement('a');
+      a.href = window.location.href;
+      a.download = document.title + '.andf';
+      a.click();
+    };
+  }
+
+  if (tocBtn && toc) {
+    tocBtn.onclick = function() { toc.classList.toggle('open'); };
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') scrollToPage(currentPage + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') scrollToPage(currentPage - 1);
+    if (e.key === '+' || (e.key === '=' && e.ctrlKey)) { e.preventDefault(); applyZoom(zoom + 10); }
+    if (e.key === '-' && e.ctrlKey) { e.preventDefault(); applyZoom(zoom - 10); }
+    if (e.key === '0' && e.ctrlKey) { e.preventDefault(); applyZoom(100); }
+  });
+
+  updatePageInfo();
+})();
+
+</script>
+</body>
+</html>
